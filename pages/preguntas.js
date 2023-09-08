@@ -2,12 +2,10 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Nav from "./components/Nav"; // Import the Nav component
 import FormMetodologia from "./components/FormMetodologia"; // Import the Nav component
 import Footer from "./components/Footer"; // Import the Nav component
 export default function Home() {
-
   const [va01Input, setVa01Input] = useState(""); // Renamed the state variable
   const [va02Input, setVa02Input] = useState(""); // Renamed the state variable
   const [enfoqueInvestigacion, setEnfoqueInvestigacion] = useState("");
@@ -16,11 +14,9 @@ export default function Home() {
   const [tiposDisenoExperimental, setTiposDisenoExperimental] = useState("");
   const [tiposDisenoNoExperimental, setTiposDisenoNoExperimental] = useState("");
   const [nivelInvestigacion, setNivelInvestigacion] = useState("");
-
   const [showTiposDisenoExperimental, setShowTiposDisenoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [showTiposDisenoNoExperimental, setShowTiposDisenoNoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [activeIndex, setActiveIndex] = useState(null);
-
   const toggleAccordion = (index) => {
     if (activeIndex === index) {
       // Si se hace clic en el elemento abierto, ciérralo
@@ -30,15 +26,12 @@ export default function Home() {
       setActiveIndex(index);
     }
   };
-
-
   const accordionData = [
     {
       question: '¿Qué es la escala nominal y ordinal en Likert?',
       answer:
         'En una escala nominal, las categorías no tienen un orden inherente y no se pueden comparar cuantitativamente. Por ejemplo, en una encuesta sobre el género de los encuestados, las opciones podrían ser "masculino" y "femenino". La escala ordinal es uno de los niveles de medición que nos otorga la clasificación y el orden de los datos sin que realmente se establezca el grado de variación entre ellos.',
     },
-
     {
       question: '4. Define las variables de tu estudio y fundaméntalo con uno o varios autores.',
       answer: 'Respuesta a la otra pregunta.',
@@ -55,7 +48,6 @@ export default function Home() {
   ];
   async function onSubmit(event) {
     event.preventDefault();
-
     // Create an object to store the form inputs
     const formData = {
       va01Input,
@@ -68,16 +60,17 @@ export default function Home() {
       nivelInvestigacion
       // Add other form fields here
     };
-
-
     // Clear the form inputs
     setVa01Input("");
     setVa02Input("");
-
+    setEnfoqueInvestigacion("");
+    setTipoInvestigacion("");
+    setDisenoInvestigacion("");
+    setTiposDisenoExperimental("");
+    setTiposDisenoNoExperimental("");
+    setNivelInvestigacion("");
     // You can also make API requests here with the formData if needed
   }
-
-
   return (
     <div className={styles.gradient_background}>
       <Head>
@@ -85,17 +78,11 @@ export default function Home() {
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
       <Nav />
-
       <div className="container">
-
-      <h3 className={`text-center ${styles.text_gt}`}>Preguntas</h3>
+        <h3 className={`text-center ${styles.text_gt}`}>Preguntas</h3>
         <p className="ms-5 me-5 text-dark text-center" >Estas son preguntas frecuentes que suelen surgir durante las sustentaciones de tesis académicas</p>
-
         <div class="row">
-
-
           <div class="col-sm-4">
-
             <div class="card">
               <div class="card-header">
                 <h5 className={`text-center ${styles.text_gt}`}>Preguntas</h5>
@@ -238,9 +225,7 @@ export default function Home() {
                         <option value="Exploratorio">Exploratorio</option>
                       </select>
                     </div>
-
                   </div>
-
                   <div class="d-grid gap-2">
                     <input type="submit" className="btn btn-success " value="generar preguntas y respuestas" />
                   </div>
@@ -248,11 +233,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-
-
           <div class="col-sm-8">
-
             <main className={styles.main}>
               <div className="card mt-2">
                 <div className="card-body">

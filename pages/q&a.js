@@ -2,10 +2,13 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import 'bootstrap/dist/css/bootstrap.css';
+
 import * as FaIcons from 'react-icons/fa';
+import { useEffect } from 'react';
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 export default function Home() {
+
   const [va01Input, setVa01Input] = useState(""); // Renamed the state variable
   const [va02Input, setVa02Input] = useState(""); // Renamed the state variable
   const [result, setResult] = useState("");
@@ -16,7 +19,6 @@ export default function Home() {
   const [tiposDisenoExperimental, setTiposDisenoExperimental] = useState("");
   const [tiposDisenoNoExperimental, setTiposDisenoNoExperimental] = useState("");
   const [nivelInvestigacion, setNivelInvestigacion] = useState("");
-
   const [showTiposDisenoExperimental, setShowTiposDisenoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [showTiposDisenoNoExperimental, setShowTiposDisenoNoExperimental] = useState(false); // Estado para controlar la visibilidad
   async function onSubmit(event) {
@@ -27,17 +29,21 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ va01: va01Input, va02: va01Input, enfoque: va01Input }),
+        body: JSON.stringify({ va01: va01Input, va02: va02Input, enfoque: enfoqueInvestigacion, tipo: tipoInvestigacion, diseno: disenoInvestigacion, tDisExp: tiposDisenoExperimental, tDisNoExp: tiposDisenoNoExperimental, nivel: nivelInvestigacion, }),
       });
-
       const data = await response.json();
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-
       setResult(data.result);
       setVa01Input("");
       setVa02Input("");
+      setEnfoqueInvestigacion("");
+      setTipoInvestigacion("");
+      setDisenoInvestigacion("");
+      setTiposDisenoExperimental("");
+      setTiposDisenoNoExperimental("");
+      setNivelInvestigacion("");
 
     } catch (error) {
       console.error(error);
@@ -55,22 +61,26 @@ export default function Home() {
       nivelInvestigacion
       // Add other form fields here
     };
-
     // Save the entered form data to textHistory
     setTextHistory([...textHistory, formData]);
-
     // Clear the form inputs
-    setVa01Input("");
-    setVa02Input("");
-
+    /*etVa01Input("");
+     setVa02Input("");
+     setEnfoqueInvestigacion("");
+     setTipoInvestigacion("");
+     setDisenoInvestigacion("");
+     setTiposDisenoExperimental("");
+     setTiposDisenoNoExperimental("");
+     setNivelInvestigacion("");*/
     // You can also make API requests here with the formData if needed
   }
+
   // Función para dividir el texto en `result` en una matriz de cadenas de texto usando expresiones regulares
   function splitTextIntoList(text) {
-    const regex = /\d+/g; // Expresión regular para encontrar números
+    const regex = /\d+\./g; // Expresión regular para encontrar números seguidos de un punto
     const parts = text.split(regex);
     return parts.map((part, index) => (
-      <li key={index}>{part}</li>
+      <li key={index}>{index === 0 ? part : `${index}.-${part}`}</li>
     ));
   }
 
@@ -81,9 +91,7 @@ export default function Home() {
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
       <Nav />
-
       <div className="container">
-
         <div className="d-flex justify-content-center align-items-center">
           <div className="position-relative text-center">
             <div className=" " >
@@ -92,11 +100,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
-
         <div class="row">
-
           <div class="col-sm-4">
             <div class="card">
               <div class="card-header">
@@ -239,9 +243,7 @@ export default function Home() {
                         <option value="Exploratorio">Exploratorio</option>
                       </select>
                     </div>
-
                   </div>
-
                   <div class="d-grid gap-2">
                     <input type="submit" className={`mb-2 mt-0 ${styles.bg_gt}`} value="Generar preguntas y respuestas con IA" />
                   </div>
@@ -252,19 +254,22 @@ export default function Home() {
 
 
           <div class="col-sm-8">
-            {result && ( // Conditional rendering based on the result
+            {result ? ( // Conditional rendering based on the result
               <main className={styles.main}>
                 <div className="card mt-2">
                   <div className="card-body">
                     <h5 className="card-title text-danger" >TEXTO INGRESADO</h5>
-
                     <ul>
                       {textHistory.map((formData, index) => (
                         <li key={index}>
                           <p>Variable 01: {formData.va01Input}</p>
                           <p>Variable 02: {formData.va02Input}</p>
                           <p>Enfoque de investigación: {formData.enfoqueInvestigacion}</p>
-                          {/* Renderizar otros campos aquí */}
+                          <p>Tipo de investigación {formData.tipoInvestigacion}</p>
+                          <p>Diseño de investigación: {formData.disenoInvestigacion}</p>
+                          <p>Tipos de diseño experimental: {formData.tiposDisenoExperimental}</p>
+                          <p>Tipos de diseño experimental: {formData.tiposDisenoNoExperimental}</p>
+                          <p>Nivel de investigación: {formData.nivelInvestigacion}</p>
                         </li>
                       ))}
                     </ul>
@@ -273,12 +278,35 @@ export default function Home() {
                 <div className="card mt-2">
                   <div className="card-body">
                     <h5 className="card-title text-success">PREGUNTAS RESPONDIDAS</h5>
-                    <ul>
+                    <ul style={{ listStyle: 'none' }}>
                       {splitTextIntoList(result)} {/* Dividir `result` y mostrarlo en una lista */}
                     </ul>
                   </div>
                 </div>
               </main>
+            ) : (
+              <div className={styles.errorText}>
+
+                <div class="card">
+                  <h5 class="card-header">Preguntas</h5>
+                  <div class="card-body">
+                    <p>1. ¿Por qué escogiste la variables para la investigación en tu trabajo?</p>
+                    <p>2. ¿Porque escogiste este enfoque? </p>
+                    <p>3. ¿Qué es y en que consiste la escala de Likert?</p>
+                    <p>4. ¿Qué es la escala nominal y ordinal en Likert?</p>
+
+                    <p>5. ¿Por qué escogiste la variable D/I para la investigación en tu trabajo? </p>
+                    <p>6. ¿Cuál ha sido tu diseño de estudio y por qué?</p>
+
+                    <p>7. ¿Qué opinión tienes sobre la herramienta que utilizaste para tu investigación?</p>
+                    <p>8. ¿Qué método de análisis de datos utilizaste?</p>
+                    <p>9. ¿Qué es una correlación de variables, en que consiste y para qué sirve?</p>
+                    <p>10. ¿Explique las razones de por qué su investigación es no experimental, preexperimental, cuasiexperimental o experimento puro?</p>
+                    <p>11. ¿Cuál es el enfoque de tu investigación? ¿Por qué?</p>
+                    <p>12. ¿Qué nivel de investigación has empleado? ¿Por qué?</p>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         </div>
