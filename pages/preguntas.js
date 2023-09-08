@@ -2,13 +2,10 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from "./components/Footer";
-import * as FaIcons from 'react-icons/fa';
-import * as PiIcons from 'react-icons/pi';
-import toast, { Toaster } from 'react-hot-toast';
-import Nav from "./components/Nav"; // Import the Nav component
-import accordionData from './components/data_preguntas'; // Importa las preguntas y respuestas desde el archivo data.js
 
+import Nav from "./components/Nav"; // Import the Nav component
+import FormMetodologia from "./components/FormMetodologia"; // Import the Nav component
+import Footer from "./components/Footer"; // Import the Nav component
 export default function Home() {
 
   const [va01Input, setVa01Input] = useState(""); // Renamed the state variable
@@ -34,6 +31,19 @@ export default function Home() {
     }
   };
 
+  
+const accordionData = [
+  {
+    question: '¿Qué es la escala nominal y ordinal en Likert?',
+    answer:
+      'En una escala nominal, las categorías no tienen un orden inherente y no se pueden comparar cuantitativamente. Por ejemplo, en una encuesta sobre el género de los encuestados, las opciones podrían ser "masculino" y "femenino". La escala ordinal es uno de los niveles de medición que nos otorga la clasificación y el orden de los datos sin que realmente se establezca el grado de variación entre ellos.',
+  },
+  {
+    question: '¿Otra pregunta?',
+    answer: 'Respuesta a la otra pregunta.',
+  },
+  // Agrega más preguntas y respuestas según sea necesario
+];
   async function onSubmit(event) {
     event.preventDefault();
 
@@ -66,7 +76,7 @@ export default function Home() {
         <link rel="icon" href="/dosg.png" />
       </Head>
       <Nav />
-
+      <FormMetodologia />
       <div className="container">
         <div class="row">
           <div class="col-sm-4">
