@@ -70,7 +70,7 @@ export default function Home() {
     <div className={styles.gradient_background}>
       <Head>
         <title>Parafrasador</title>
-        <link rel="icon" href="/dosg.png" />
+        <link rel="icon" href="/traviweb_logo.png" />
       </Head>
       <Nav />
 

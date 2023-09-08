@@ -10,12 +10,10 @@ export default function Home() {
   return (
     <div id="componente" className={styles.gradient_background}>
       <Head>
-        <title>Parafrasador</title>
-        <link rel="icon" href="/dosg.png" />
+        <title>TraviWeb-Inicio</title>
+        <link rel="icon" href="/traviweb_logo.png" />
       </Head>  
      <Nav/>
-      
-      
      <Portal/>
      <Footer/>
     
