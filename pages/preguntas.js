@@ -2,8 +2,13 @@ import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Footer from "./components/Footer";
+import * as FaIcons from 'react-icons/fa';
+import * as PiIcons from 'react-icons/pi';
+import toast, { Toaster } from 'react-hot-toast';
 import Nav from "./components/Nav"; // Import the Nav component
+import accordionData from './components/data_preguntas'; // Importa las preguntas y respuestas desde el archivo data.js
+
 export default function Home() {
 
   const [va01Input, setVa01Input] = useState(""); // Renamed the state variable
@@ -17,6 +22,17 @@ export default function Home() {
 
   const [showTiposDisenoExperimental, setShowTiposDisenoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [showTiposDisenoNoExperimental, setShowTiposDisenoNoExperimental] = useState(false); // Estado para controlar la visibilidad
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    if (activeIndex === index) {
+      // Si se hace clic en el elemento abierto, ciérralo
+      setActiveIndex(null);
+    } else {
+      // Si se hace clic en un elemento cerrado, ábrelo
+      setActiveIndex(index);
+    }
+  };
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -210,29 +226,34 @@ export default function Home() {
                   aki estareoms y go
                 </div>
               </div>
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      ¿Qué es la escala nominal y ordinal en Likert?
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      En una escala nominal, las categorías no tienen un orden inherente y no se pueden comparar cuantitativamente. Por ejemplo, en una encuesta sobre el género de los encuestados, las opciones podrían ser "masculino" y "femenino".
-                      La escala ordinal es uno de los niveles de medición que nos otorga la clasificación y el orden de los datos sin que realmente se establezca el grado de variación entre ellos.
-                      <p>Variable 01: {va01Input}</p>
-                      <p>Variable 02: {va02Input}</p>
+              <div className="accordion" id="accordionExample">
+                {accordionData.map((item, index) => (
+                  <div className="accordion-item" key={index}>
+                    <h2 className="accordion-header">
+                      <button
+                        className={`accordion-button bg-light ${activeIndex === index ? '' : 'collapsed'}`}
+                        type="button"
+                        onClick={() => toggleAccordion(index)}
+                      >
+                        {item.question}
+                      </button>
+                    </h2>
+                    <div
+                      className={`accordion-collapse collapse ${activeIndex === index ? 'show' : ''}`}
+                      id={`collapse${index}`}
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">{item.answer}</div>
                     </div>
                   </div>
-                </div>
-
+                ))}
               </div>
             </main>
 
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
