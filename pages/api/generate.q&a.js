@@ -58,7 +58,7 @@ function generatePrompt(va01, va02,concatenatedValues) {
   const capitalizedVar02 = va02[0].toUpperCase() + va02.slice(1).toLowerCase();
   const capitalizedconcatenatedValues = concatenatedValues[0].toUpperCase() + concatenatedValues.slice(1).toLowerCase();
 
-  return `Listar preguntas ingresadas y sus respuestas enumeradas tomando en cuentas estos datos: Variable 01 o independiente"${capitalizedVar01}", Variable 02 o dependendiente "${capitalizedVar02}", Enfoque de investigación "${capitalizedconcatenatedValues}":  
+  return `Listar  respuestas enumeradas tomando en cuentas estos datos: Variable 01 o independiente"${capitalizedVar01}", Variable 02 o dependendiente "${capitalizedVar02}", Enfoque de investigación "${capitalizedconcatenatedValues}":  
 1. ¿Por qué escogiste la variables para la investigación en tu trabajo?
 2. ¿Porque escogiste este enfoque? 
 3. ¿Qué es y en que consiste la escala de Likert?

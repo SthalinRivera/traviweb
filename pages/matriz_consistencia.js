@@ -79,7 +79,7 @@ export default function Home() {
               <div class="card-body">
                 <form onSubmit={onSubmit}>
                   <div class="mb-1">
-                    <label for="disabledSelect" class="form-label">Variable dependiente ó variable 1</label>
+                    <label for="disabledSelect" class="form-label">Variable Independiente ó variable 1</label>
                     <input type="text"
                       name="variable1"
                       placeholder=" (Eg: Aplicación movil, etc...) "
@@ -87,7 +87,7 @@ export default function Home() {
                       onChange={(e) => setVa01Input(e.target.value)} class="form-control" />
                   </div>
                   <div class="mb-1">
-                    <label for="disabledSelect" class="form-label">Variable Independiente ó variable 2</label>
+                    <label for="disabledSelect" class="form-label">Variable dependiente ó variable 2</label>
                     <input
                       type="text"
                       name="variable2"
@@ -115,6 +115,7 @@ export default function Home() {
                 <div className="card-body">
                   <h4 className={`text-center ${styles.text_gt}`}>Matriz de consistencia generado</h4>
                   <div>
+                  <div class="table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
@@ -133,6 +134,7 @@ export default function Home() {
                         ))}
                       </tbody>
                     </table>
+                    </div>
                   </div>
                 </div>
               </div>
