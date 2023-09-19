@@ -81,3 +81,8 @@ text-decoration: none;
   background: rgb(40,83,143);
   background: linear-gradient(61deg, rgba(40,83,143,1) 0%, rgba(113,13,124,1) 68%);
   }
+  
+  .bg_card_resumidor {
+    background: rgb(40,83,143);
+    background: linear-gradient(61deg, rgb(134, 134, 193) 0%, rgb(112, 181, 255) 68%);
+    }

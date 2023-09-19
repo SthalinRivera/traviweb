@@ -15,9 +15,9 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
+  const text_resumen = req.body.text_resumen || '';
   const option = req.body.option || '';
-  if (animal.trim().length === 0) {
+  if (text_resumen.trim().length === 0) {
     res.status(400).json({
       error: {
         message: "Por favor ingresar textos válidos",
@@ -29,7 +29,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal,option),
+      prompt: generatePrompt(text_resumen,option),
       temperature: 0.6,
       max_tokens: 1024,
     });
@@ -50,10 +50,11 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal,option) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-    const capitalizedOpcion =
+function generatePrompt(text_resumen,option) {
+  const capitalizedText =
+  text_resumen[0].toUpperCase() + text_resumen.slice(1).toLowerCase();
+    const capitalizedOption =
     option[0].toUpperCase() + option.slice(1).toLowerCase();
-  return `Realizar  un parafraseo  ${capitalizedOpcion}  y mejorar el siguiente texto: ${capitalizedAnimal}`;
+
+  return `Actuar  como un experto en resumir textos de forma ${capitalizedOption}  el siguiente texto: ${capitalizedText}`;
 }

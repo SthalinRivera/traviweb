@@ -35,12 +35,12 @@ export default function Home() {
     event.preventDefault();
     setIsLoading(true); // Mostrar el spinner mientras se carga
     try {
-      const response = await fetch("/api/generate", {
+      const response = await fetch("/api/resumidor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput, option: selectedOption }),
+        body: JSON.stringify({ text_resumen: animalInput, option: selectedOption }),
       });
 
       const data = await response.json();
@@ -55,7 +55,8 @@ export default function Home() {
       setTextHistory([animalInput]);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+
+      toast.error(error.message)
     } finally {
       setIsLoading(false); // Ocultar el spinner después de cargar
     }
@@ -69,51 +70,58 @@ export default function Home() {
   return (
     <div className={styles.gradient_background}>
       <Head>
-        <title>Parafrasador</title>
+        <title>Resumidor IA</title>
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
       <Nav />
 
       <div className="container">
 
-        <h3 className={`text-center ${styles.text_gt}`} >Parafraseador IA</h3>
-        <p className="container text-center">Para parafrasear online usando nuestra herramienta de paráfrasis de texto, escriba o pegue y haga clic en el botón "Parafrasear Textos".</p>
+        <h3 className={`text-center ${styles.text_gt}`} >Resumidor IA</h3>
+        <p className="container text-center">Para utilizar nuestro resumidor en línea con nuestra avanzada herramienta de resumir texto usando inteligencia artificial, solo necesita escribir o pegar su contenido y luego hacer clic en el botón que dice 'Resumir Textos'.</p>
         <div class="card mb-2">
-          <div class="card-header">
+          <div className={`card-header ${styles.bg_card_resumidor}`}>
             <button
               type="button"
-              className={`btn btn-light ms-1 ${selectedOption === "sencillo" ? "active" : ""}`}
-              onClick={() => setSelectedOption("sencillo")}
+              className={`btn btn-light ms-1 mt-1 ${selectedOption === "Narrativo" ? "active" : ""}`}
+              onClick={() => setSelectedOption("Narrativo")}
             >
-              Sencilla  <PiIcons.PiListMagnifyingGlassBold color="purple" size="20px" />
+              Narrativo  <FaIcons.FaBook color="#045FB4" size="20px" />
             </button>
             <button
               type="button"
-              className={`btn btn-light ms-1 ${selectedOption === "corto" ? "active" : ""}`}
-              onClick={() => setSelectedOption("corto")}
+              className={`btn btn-light ms-1 mt-1 ${selectedOption === "Analítico" ? "active" : ""}`}
+              onClick={() => setSelectedOption("Analítico")}
             >
-              Corto  <PiIcons.PiShootingStarDuotone color="purple" size="20px" />
+              Analítico  <FaIcons.FaChartArea color="#045FB4" size="20px" />
             </button>
             <button
               type="button"
-              className={`btn btn-light ms-1 ${selectedOption === "Resumido" ? "active" : ""}`}
-              onClick={() => setSelectedOption("Resumido")}
+              className={`btn btn-light ms-1 mt-1 ${selectedOption === "Informativo" ? "active" : ""}`}
+              onClick={() => setSelectedOption("Informativo")}
             >
-              Resumido <FaIcons.FaMeteor color="purple" size="20px" />
+              Informativo <FaIcons.FaCommentAlt color="#045FB4" size="20px" />
             </button>
             <button
               type="button"
-              className={`btn btn-light ms-1 ${selectedOption === "Extensivo" ? "active" : ""}`}
-              onClick={() => setSelectedOption("Extensivo")}
+              className={`btn btn-light ms-1 mt-1 ${selectedOption === "visual" ? "active" : ""}`}
+              onClick={() => setSelectedOption("visual")}
             >
-              Extensivo <FaIcons.FaAlignCenter color="purple" size="20px" />
+              Visual <FaIcons.FaBookOpen color="#045FB4" size="20px" />
             </button>
             <button
               type="button"
-              className={`btn btn-light ms-1 ${selectedOption === "inteligente" ? "active" : ""}`}
-              onClick={() => setSelectedOption("inteligente")}
+              className={`btn btn-light ms-1 mt-1 ${selectedOption === "creativo" ? "active" : ""}`}
+              onClick={() => setSelectedOption("creativo")}
             >
-              Inteligente <FaIcons.FaHeadSideVirus color="purple" size="20px" />
+              Creativo <FaIcons.FaStar color="#045FB4" size="20px" />
+            </button>
+            <button
+              type="button"
+              className={`btn btn-light ms-1 mt-1 ${selectedOption === "Crítico" ? "active" : ""}`}
+              onClick={() => setSelectedOption("Crítico")}
+            >
+              Crítico <FaIcons.FaHeadSideVirus color="#045FB4" size="20px" />
             </button>
           </div>
           <div class="card-body">
@@ -134,24 +142,25 @@ export default function Home() {
                   </div>
                   <p className="mt-1">Número de caracteres: {charCount}</p>
                   <div class="d-grid gap-2">
-                    <input type="submit" className={`mb-2 mt-0 ${styles.bg_gt}`} value="Parafrasear Textos" />
+                    <input type="submit" className={`mb-2 mt-0 ${styles.bg_gt}`} value="Resumir Textos" />
+                    <Toaster />
                   </div>
                 </form>
               </div>
 
               <div className="col-sm-6 ">
-
-              <div class="position-relative">
+                <div class="position-relative">
                   <div class="position-absolute top-50 start-50 translate-middle">
-                    <p class="fst-italic mt-5"> "Aquí se presentará el texto parafraseado"</p>
+                    <p class="fst-italic mt-5"> "Aquí se presentará el texto resumido"</p>
                     </div>
                 </div>
+                
                 {isLoading ? ( // Mostrar el spinner si isLoading es true
                   <div class="text-center mt-4">
-                  <div class="spinner-border " role="status">
-                    <span class="visually-hidden">Loading...</span>
+                    <div class="spinner-border " role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
                   </div>
-                </div>
                 ) : result ? ( // Mostrar el resultado si result tiene datos
                   <main className={styles.main}>
                     <div className="card mt-2">
@@ -162,17 +171,17 @@ export default function Home() {
                     </div>
                     <div className="card mt-2">
                       <div className="card-body">
-                        <h5 className="card-title text-dark ">Texto parafraseado</h5>
+                        <h5 className="card-title text-dark ">Texto Resumido</h5>
                         <p className="card-text">{result}</p>
                       </div>
-                    </div> 
+                    </div>
                     <div className="mt-2 text-center ">
-                     <button className="btn btn-light mt-2" onClick={copyToClipboard}>
-                         Copy <FaIcons.FaCopy color="purple" />
-                        </button>
-                        <Toaster/>
-                    </div> 
-                  
+                      <button className="btn btn-light mt-2" onClick={copyToClipboard}>
+                        Copy <FaIcons.FaCopy color="purple" />
+                      </button>
+                      <Toaster />
+                    </div>
+
                   </main>
                 ) : null}
               </div>

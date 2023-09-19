@@ -288,22 +288,10 @@ export default function Home() {
               <div className={styles.errorText}>
 
                 <div class="card">
-                  <h5 class="card-header">Preguntas</h5>
+                  <h5 class="card-header">Ejemplo</h5>
                   <div class="card-body">
-                    <p>1. ¿Por qué escogiste la variables para la investigación en tu trabajo?</p>
-                    <p>2. ¿Porque escogiste este enfoque? </p>
-                    <p>3. ¿Qué es y en que consiste la escala de Likert?</p>
-                    <p>4. ¿Qué es la escala nominal y ordinal en Likert?</p>
-
-                    <p>5. ¿Por qué escogiste la variable D/I para la investigación en tu trabajo? </p>
-                    <p>6. ¿Cuál ha sido tu diseño de estudio y por qué?</p>
-
-                    <p>7. ¿Qué opinión tienes sobre la herramienta que utilizaste para tu investigación?</p>
-                    <p>8. ¿Qué método de análisis de datos utilizaste?</p>
-                    <p>9. ¿Qué es una correlación de variables, en que consiste y para qué sirve?</p>
-                    <p>10. ¿Explique las razones de por qué su investigación es no experimental, preexperimental, cuasiexperimental o experimento puro?</p>
-                    <p>11. ¿Cuál es el enfoque de tu investigación? ¿Por qué?</p>
-                    <p>12. ¿Qué nivel de investigación has empleado? ¿Por qué?</p>
+                    <p>1. ¿Cuál fue la motivación para la realización de la investigación?</p>
+                    <p class="fst-italic">La motivación principal que me impulsó a llevar a cabo esta investigación fue el deseo de abordar una problemática que considero de gran relevancia en el campo de estudio. Durante mi trayectoria académica y mi experiencia en este ámbito, me percaté de una brecha de conocimiento en un área específica que consideré crucial.</p>
                   </div>
                 </div>
               </div>

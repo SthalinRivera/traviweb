@@ -26,6 +26,9 @@ const Nav = () => {
               <a class="nav-link" href="parafrasear">Parafrasear</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="resumidor">Resumedor</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="q&a">Q&A</a>
             </li>
             <li class="nav-item">
