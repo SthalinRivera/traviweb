@@ -175,9 +175,24 @@ export default function Home() {
             <p className={`${styles.text_description_matriz}`}>Nuestra aplicación de generación de matriz de consistencia con IA es una solución avanzada que agiliza y mejora significativamente el proceso de crear una matriz de consistencia robusta para cualquier proyecto de investigación</p>
           </div>
         </div>
+        <div class="row mt-5">
+          <div class="col-sm-6">
+            <h1 className="text-white mt-3" >Ventaja</h1>
+            <p className={`${styles.text_description_matriz}`}>Ahorro de Tiempo: La IA puede automatizar gran parte del proceso de elaboración de la matriz de consistencia, lo que reduce significativamente el tiempo y esfuerzo requeridos por parte del investigador.</p>
+            <h1 className="text-white mt-3" >Desventaja</h1>
+            <p className={`${styles.text_description_matriz}`}>Dependencia de la Tecnología: La eficacia de la aplicación depende de la calidad y la precisión de los algoritmos de IA, lo que significa que puede haber errores o limitaciones en la generación de la matriz de consistencia.</p>
+
+          </div>
+          <div class="col-sm-6">
+            <div className="rounded-4 text-center">
+              <img src="/cohete.gif" class=" rounded-4 img-fluid mt-4 mb-4"  width={450} alt="..." />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="bg-white ">
+      <div className="bg-white mb-2">
+        <p className="text-center" > Travi Web</p>
         <Footer />
       </div>
     </div>
