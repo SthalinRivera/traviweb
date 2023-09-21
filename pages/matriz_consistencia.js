@@ -12,6 +12,28 @@ export default function Home() {
   const [va02Input, setVa02Input] = useState(""); // Renamed the state variable
   const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const surpriseValues = [
+    { va01: 'Aplicación móvil', va02: 'Mejorar proceso de ventas' },
+    { va01: 'Nivel de educación de los padres', va02: 'Rendimiento académico de los estudiantes' },
+    { va01: 'Acceso a recursos tecnológicos', va02: 'Competencia digital de los estudiantes' },
+    { va01: 'Estilo de liderazgo de los gerentes', va02: 'Nivel de satisfacción y compromiso de los empleados' },
+    { va01: 'Tipo de fertilizante utilizado', va02: 'Rendimiento de cultivos agrícolas' },
+    { va01: 'Cumplimiento de regulaciones fiscales y tributarias', va02: 'Implicaciones fiscales y carga tributaria de la empresa' },
+    { va01: ' Promoción de eventos culturales locales', va02: 'Percepción de autenticidad cultural por parte de los turistas' },
+    { va01: 'Nivel de accesibilidad y usabilidad del sitio', va02: 'Rendimiento académico de los estudiantes' },
+
+    // Agrega más valores sorpresa según sea necesario
+  ];
+
+  const handleSurpriseClick = () => {
+    // Seleccionamos un valor sorpresa al azar de la lista
+    const randomIndex = Math.floor(Math.random() * surpriseValues.length);
+    const randomValue = surpriseValues[randomIndex];
+
+    // Establecemos los valores sorpresa en los campos de entrada
+    setVa01Input(randomValue.va01);
+    setVa02Input(randomValue.va02);
+  };
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -37,7 +59,7 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       toast.error(error.message)
-    }finally {
+    } finally {
       setIsLoading(false); // Ocultar el spinner después de cargar
     }
   }
@@ -49,72 +71,72 @@ export default function Home() {
   const datosSinGuiones = datos.filter((fila) => !fila.includes("------------"));
 
   return (
-    <div className={styles.gradient_background}>
+    <div className={styles.gradient_background_dark}>
       <Head>
-        <title>Generador matriz de consistencia</title>
+        <title> IA Generator matriz de consistencia</title>
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
       <Nav />
 
       <div className="container">
-      <div className="d-flex justify-content-center align-items-center">
-          <div className="position-relative text-center">
-            <div className={`card mt-3 mb-3 ${styles.bg_aviso}`} >
-              <div className="card-body " >
-                <h5 className="ms-5 me-5 text-light" >VERSIÓN BETA </h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <h3 className={`text-center ${styles.text_gt}`}>Generador matriz de consistencia</h3>
-        <p className="ms-5 me-5 text-dark text-center" > "Nuestra aplicación, en versión beta, es un generador de matrices de consistencia, diseñado para facilitar la elaboración de tesis académicas. ¿Te gustaría ser uno de los primeros en probarla?"</p>
-
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="card">
-              <div class="card-header">
-                <h5 className={`text-center ${styles.text_gt}`}>Generar matriz de consistencia</h5>
-              </div>
-              <div class="card-body">
+        <h3 className={`text-center mt-3 ${styles.gradient_background_text}`}>IA Generator matriz <br /> de consistencia</h3>
+        <p className={`ms-5 me-5 text-white text-center ${styles.text_description_matri}`}  > Convierte palabras en  matrices de consistencia, diseñado para facilitar la elaboración de tesis académicas. ¿Te gustaría ser uno de los primeros en probarla?</p>
+        <div class="row ">
+          <div class="col-sm-12 ">
+            <div class="card  border-0 mb-3">
+              <div class="card-body bg-dark rounded border border-warning ">
                 <form onSubmit={onSubmit}>
-                  <div class="mb-1">
-                    <label for="disabledSelect" class="form-label">Variable Independiente ó variable 1</label>
-                    <input type="text"
-                      name="variable1"
-                      placeholder=" (Eg: Aplicación movil, etc...) "
-                      value={va01Input}
-                      onChange={(e) => setVa01Input(e.target.value)} class="form-control" />
-                  </div>
-                  <div class="mb-1">
-                    <label for="disabledSelect" class="form-label">Variable dependiente ó variable 2</label>
-                    <input
-                      type="text"
-                      name="variable2"
-                      placeholder=" (Eg: Mejorar proceso de ventas, etc...) "
-                      value={va02Input}
-                      onChange={(e) => setVa02Input(e.target.value)} class="form-control" />
-                  </div>
-                  <div class="d-grid gap-2">
-                    <input type="submit" className={`mb-2 mt-0 ${styles.bg_gt}`} value="Generar" />
-                    <Toaster />
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <input
+                        type="text"
+                        name="variable1"
+                        placeholder=" (Ej: Aplicación móvil, etc...)"
+                        value={va01Input}
+                        onChange={(e) => setVa01Input(e.target.value)}
+                        className="form-control mt-1 border-0"
+                      />
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        type="text"
+                        name="variable2"
+                        placeholder=" (Ej: Mejorar proceso de ventas, etc...)"
+                        value={va02Input}
+                        onChange={(e) => setVa02Input(e.target.value)}
+                        className={`form-control mt-1 mb-1  border-0`}
+                      />
+                    </div>
+                    <div class="col-sm-2 ">
+                      <div className="d-grid gap-2">
+                        <button type="submit"
+                          className={`mb-0 mt-0 ${styles.bg_gt}`}
+                          value="Generar"><FaIcons.FaMagic color="white" size="15px" />  Generar</button>
+                      </div>
+                    </div>
                   </div>
                 </form>
               </div>
             </div>
+            <button
+              type="button"
+              className="btn btn-link text-warning"
+              onClick={handleSurpriseClick}>
+              <FaIcons.FaStarHalfAlt color="#F7FE2E" size="20px" /> Sorpréndeme
+            </button>
           </div>
           {isLoading ? ( // Mostrar el spinner si isLoading es true
             <div class="text-center mt-4">
-                <h5 className={`text-center ${styles.text_gt}`}>Generando...</h5>
+              <h5 className={`text-center text-white`}>Generando...</h5>
               <div class="spinner-border " role="status">
-                <span class="visually-hidden">Generando...</span>
+                <span class="visually-hidden text-white">Generando...</span>
               </div>
             </div>
           ) : result ? ( // Mostrar el resultado si result tiene datos
-              <div className="card mt-2">
-                <div className="card-body">
-                  <h4 className={`text-center ${styles.text_gt}`}>Matriz de consistencia generado</h4>
-                  <div>
+            <div className="card mt-2">
+              <div className="card-body">
+                <h4 className={`text-center ${styles.text_gt}`}>Matriz de consistencia generado</h4>
+                <div>
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -134,15 +156,30 @@ export default function Home() {
                         ))}
                       </tbody>
                     </table>
-                    </div>
                   </div>
                 </div>
               </div>
+            </div>
           ) : null}
 
         </div>
+
+        <div class="row mt-5">
+          <div class="col-sm-6">
+            <div className="rounded-4 text-center">
+              <img src="/matriz.png" class=" rounded-4 img-fluid mt-4 mb-4" alt="..." />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h1 className="text-white mt-3" >Una nueva forma de crear matrices de  consistencia </h1>
+            <p className={`${styles.text_description_matriz}`}>Nuestra aplicación de generación de matriz de consistencia con IA es una solución avanzada que agiliza y mejora significativamente el proceso de crear una matriz de consistencia robusta para cualquier proyecto de investigación</p>
+          </div>
+        </div>
       </div>
-      <Footer />
+
+      <div className="bg-white ">
+        <Footer />
+      </div>
     </div>
   );
 }

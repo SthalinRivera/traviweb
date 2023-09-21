@@ -49,7 +49,7 @@ function Footer() {
                     <i class="fas fa-envelope me-3"></i>
                     TraviWeb.@gmail.com
                   </p>
-                  <p><i class="fas fa-phone me-3"></i> 910985938</p>
+                  <p><i class="fas fa-phone me-3"></i>+51 910985938</p>
                 </div>
               </div>
             </div>

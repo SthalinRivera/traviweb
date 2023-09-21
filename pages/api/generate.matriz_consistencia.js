@@ -61,6 +61,5 @@ export default async function (req, res) {
 function generatePrompt(va01,va02) {
   const capitalizedva01 = va01[0].toUpperCase() + va01.slice(1).toLowerCase();
   const capitalizedva02 = va02[0].toUpperCase() + va02.slice(1).toLowerCase();
-  return `Generar una matriz de consistencia tomando en cuenta "Problemas general y especificos", "objetivos general y especificos" , "hipotisis general y especificos", "dimensiones", "variable indicadores" , "Enfoque de investigación" y metodologia
- de las siguientes variables:${capitalizedva01} y ${capitalizedva02}`;
+  return `Generar una tabla de matriz de consistencia tomando en cuenta "Problemas general y especificos", "objetivos general y especificos" , "hipotisis general y especificos", "variables","dimensiones" , "indicadores", y por separado en la ultima fita "diseño metodologico" como tipo te estudio, enfoque, diseño, tipo de diseño , poblacion y muestra de las siguientes variables:${capitalizedva01} y ${capitalizedva02}`;
 }
