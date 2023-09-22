@@ -28,7 +28,6 @@ export default async function (req, res) {
     });
     return;
   }
-
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
@@ -72,6 +71,5 @@ function generatePrompt(va01, va02,concatenatedValues) {
 11. ¿Cuál es el enfoque de tu investigación? ¿Por qué?
 12. ¿Qué nivel de investigación has empleado? ¿Por qué?
  `
- 
     ;
 }

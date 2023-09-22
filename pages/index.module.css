@@ -138,3 +138,33 @@
   text-decoration: solid;
   color: #a9c2c3;
 }
+/* MultiInput.css */
+
+.selected-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.selected-value {
+  background-color: #007BFF;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.selected-value button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.selected-value button:hover {
+  text-decoration: underline;
+}

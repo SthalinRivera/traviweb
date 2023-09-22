@@ -24,6 +24,37 @@ export default function Home() {
 
     // Agrega más valores sorpresa según sea necesario
   ];
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleAddValue = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // Evita que se envíe el formulario
+      addValue(inputValue);
+    }
+  };
+
+  const addValue = (value) => {
+    if (value && selectedValues.length < 2 && !selectedValues.includes(value)) {
+      setSelectedValues([...selectedValues, value]);
+      setInputValue('');
+    }
+  };
+
+  const handleRemoveValue = (valueToRemove) => {
+    const updatedValues = selectedValues.filter((value) => value !== valueToRemove);
+    setSelectedValues(updatedValues);
+  };
+
+  const getValues = () => {
+    return selectedValues;
+  };
+
+
 
   const handleSurpriseClick = () => {
     // Seleccionamos un valor sorpresa al azar de la lista
@@ -80,12 +111,36 @@ export default function Home() {
 
       <div className="container">
         <h3 className={`text-center mt-3 ${styles.gradient_background_text}`}>IA Generator matriz <br /> de consistencia</h3>
-        <p className={`ms-5 me-5 text-center ${styles.text_description_matriz}`}  > Convierte palabras en  matrices de consistencia, diseñado para facilitar la elaboración de tesis académicas. ¿Te gustaría ser uno de los primeros en probarla?</p>
+        <p className={`ms-5 me-5 text-white text-center ${styles.text_description_matri}`}  > Convierte palabras en  matrices de consistencia, diseñado para facilitar la elaboración de tesis académicas. ¿Te gustaría ser uno de los primeros en probarla?</p>
+
+
+        <div>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={handleInputChange}
+            onKeyDown={handleAddValue}
+            placeholder="Enter a value and press Enter"
+          />
+          <div>
+            Selected Values:
+            <div className="selected-values">
+              {selectedValues.map((value) => (
+                <span key={value} className="selected-value">
+                  {value}
+                  <button onClick={() => handleRemoveValue(value)}>Remove</button>
+                </span>
+              ))}
+            </div>
+          </div>
+          <button onClick={getValues}>Get Selected Values</button>
+        </div>
+
         <div class="row ">
           <div class="col-sm-12 ">
             <div class="card  border-0 mb-3">
-              <div class="card-body rounded">
-                <form onSubmit={onSubmit}>
+              <div class="card-body   ">
+              <form onSubmit={onSubmit}>
                   <div class="row">
                     <div class="col-sm-5">
                       <input
@@ -164,31 +219,7 @@ export default function Home() {
 
         </div>
 
-        <div class="row mt-5">
-          <div class="col-sm-6">
-            <div className="rounded-4 text-center">
-              <img src="/matriz.png" class=" rounded-4 img-fluid mt-4 mb-4" alt="..." />
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <h1 className="text-white mt-3" >Una nueva forma de crear matrices de  consistencia </h1>
-            <p className={`${styles.text_description_matriz}`}>Nuestra aplicación de generación de matriz de consistencia con IA es una solución avanzada que agiliza y mejora significativamente el proceso de crear una matriz de consistencia robusta para cualquier proyecto de investigación</p>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-sm-6">
-            <h1 className="text-white mt-3" >Ventaja</h1>
-            <p className={`${styles.text_description_matriz}`}>Ahorro de Tiempo: La IA puede automatizar gran parte del proceso de elaboración de la matriz de consistencia, lo que reduce significativamente el tiempo y esfuerzo requeridos por parte del investigador.</p>
-            <h1 className="text-white mt-3" >Desventaja</h1>
-            <p className={`${styles.text_description_matriz}`}>Dependencia de la Tecnología: La eficacia de la aplicación depende de la calidad y la precisión de los algoritmos de IA, lo que significa que puede haber errores o limitaciones en la generación de la matriz de consistencia.</p>
 
-          </div>
-          <div class="col-sm-6">
-            <div className="rounded-4 text-center">
-              <img src="/cohete.gif" class=" rounded-4 img-fluid mt-4 mb-4" width={450} alt="..." />
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="bg-white mb-2">
