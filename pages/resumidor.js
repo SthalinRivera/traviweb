@@ -68,7 +68,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.gradient_background}>
+    <div className={styles.gradient_background_dark}>
       <Head>
         <title>Resumidor IA</title>
         <link rel="icon" href="/traviweb_logo.png" />
@@ -77,8 +77,8 @@ export default function Home() {
 
       <div className="container">
 
-        <h3 className={`text-center ${styles.text_gt}`} >Resumidor IA</h3>
-        <p className="container text-center">Para utilizar nuestro resumidor en línea con nuestra avanzada herramienta de resumir texto usando inteligencia artificial, solo necesita escribir o pegar su contenido y luego hacer clic en el botón que dice 'Resumir Textos'.</p>
+        <h3 className={`text-center ${styles.gradient_background_text}`} >Resumidor IA</h3>
+        <p className={`ms-5 me-5 text-center ${styles.text_description_matriz}`}>Para utilizar nuestro resumidor en línea con nuestra avanzada herramienta de resumir texto usando inteligencia artificial, solo necesita escribir o pegar su contenido y luego hacer clic en el botón que dice 'Resumir Textos'.</p>
         <div class="card mb-2">
           <div className={`card-header ${styles.bg_card_resumidor}`}>
             <button
@@ -150,8 +150,8 @@ export default function Home() {
 
               <div className="col-sm-6 ">
                 <div class="position-relative">
-                  <div class="position-absolute top-50 start-50 translate-middle">
-                    <p class="fst-italic mt-5"> "Aquí se presentará el texto resumido"</p>
+                  <div class="text-center">
+                    <p class="fst-italic mt-3"> "Aquí se presentará el texto resumido"</p>
                     </div>
                 </div>
                 

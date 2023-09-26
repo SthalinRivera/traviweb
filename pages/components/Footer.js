@@ -6,7 +6,7 @@ function Footer() {
     <div className="">
       <div className="container">
   
-        <footer class="text-center text-lg-start  text-muted">
+        <footer class="text-center text-lg-start text-light-emphasis">
           <section class="">
             <div class="container text-center text-md-start mt-5">
               <div class="row mt-3">

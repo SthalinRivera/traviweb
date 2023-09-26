@@ -191,10 +191,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-white mb-2">
-        <p className="text-center" > Travi Web</p>
+     
         <Footer />
-      </div>
+    
     </div>
   );
 }
