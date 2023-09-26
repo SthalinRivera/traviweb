@@ -108,7 +108,7 @@
 }
 
 .gradient_background_text {
-  font-size: clamp(3.8rem, 1.5vw, 3rem);
+  font-size: clamp(3rem, 1vw, 3rem);
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   margin: 5px;
@@ -167,4 +167,8 @@
 
 .selected-value button:hover {
   text-decoration: underline;
+}
+.bg_card{
+  background: rgb(39, 87, 110);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 95%);
 }

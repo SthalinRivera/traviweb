@@ -79,8 +79,8 @@ export default function Home() {
 
         <h3 className={`text-center ${styles.gradient_background_text}`} >Resumidor IA</h3>
         <p className={`ms-5 me-5 text-center ${styles.text_description_matriz}`}>Para utilizar nuestro resumidor en línea con nuestra avanzada herramienta de resumir texto usando inteligencia artificial, solo necesita escribir o pegar su contenido y luego hacer clic en el botón que dice 'Resumir Textos'.</p>
-        <div class="card mb-2">
-          <div className={`card-header ${styles.bg_card_resumidor}`}>
+        <div  className={`card mb-2 ${styles.bg_card}`}>
+          <div className="card-header">
             <button
               type="button"
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "Narrativo" ? "active" : ""}`}

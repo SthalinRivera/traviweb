@@ -21,6 +21,30 @@ export default function Home() {
   const [nivelInvestigacion, setNivelInvestigacion] = useState("");
   const [showTiposDisenoExperimental, setShowTiposDisenoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [showTiposDisenoNoExperimental, setShowTiposDisenoNoExperimental] = useState(false); // Estado para controlar la visibilidad
+  const [pregunta, setPregunta] = useState(""); // Preguntas perzonalizado
+
+  const surpriseValues = [
+    { va01: 'Aplicación móvil', va02: 'Mejorar proceso de ventas', enfoqueInvestigacion: 'Cuantitavi', tipoInvestigacion: 'Cualitativo', disenoInvestigacion: 'Aplicada', tiposDisenoExperimental: 'Experimental', tiposDisenoNoExperimental: 'Preexperimental', nivelInvestigacion: 'Explicativo', pregunta: '¿Cuál fue la motivación para la realización de la investigación?' },
+
+    // Agrega más valores sorpresa según sea necesario
+  ];
+  const handleSurpriseClick = () => {
+    // Seleccionamos un valor sorpresa al azar de la lista
+    const randomIndex = Math.floor(Math.random() * surpriseValues.length);
+    const randomValue = surpriseValues[randomIndex];
+
+    // Establecemos los valores sorpresa en los campos de entrada
+    setVa01Input(randomValue.va01);
+    setVa02Input(randomValue.va02);
+    setEnfoqueInvestigacion(randomValue.enfoqueInvestigacion);
+    setTipoInvestigacion(randomValue.tipoInvestigacion);
+    setDisenoInvestigacion(randomValue.disenoInvestigacion);
+    setTiposDisenoExperimental(randomValue.tiposDisenoExperimental);
+    setTiposDisenoNoExperimental(randomValue.tiposDisenoNoExperimental);
+    setNivelInvestigacion(randomValue.nivelInvestigacion);
+    setPregunta(randomValue.pregunta);
+  };
+
   async function onSubmit(event) {
     event.preventDefault();
     try {
@@ -29,50 +53,19 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ va01: va01Input, va02: va02Input, enfoque: enfoqueInvestigacion, tipo: tipoInvestigacion, diseno: disenoInvestigacion, tDisExp: tiposDisenoExperimental, tDisNoExp: tiposDisenoNoExperimental, nivel: nivelInvestigacion, }),
+        body: JSON.stringify({ va01: va01Input, va02: va02Input, enfoque: enfoqueInvestigacion, tipo: tipoInvestigacion, diseno: disenoInvestigacion, tDisExp: tiposDisenoExperimental, tDisNoExp: tiposDisenoNoExperimental, nivel: nivelInvestigacion, pregunta: pregunta }),
       });
       const data = await response.json();
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
       setResult(data.result);
-      setVa01Input("");
-      setVa02Input("");
-      setEnfoqueInvestigacion("");
-      setTipoInvestigacion("");
-      setDisenoInvestigacion("");
-      setTiposDisenoExperimental("");
-      setTiposDisenoNoExperimental("");
-      setNivelInvestigacion("");
+
 
     } catch (error) {
       console.error(error);
       alert(error.message);
     }
-    // Create an object to store the form inputs
-    const formData = {
-      va01Input,
-      va02Input,
-      enfoqueInvestigacion,
-      tipoInvestigacion,
-      disenoInvestigacion,
-      tiposDisenoExperimental,
-      tiposDisenoNoExperimental,
-      nivelInvestigacion
-      // Add other form fields here
-    };
-    // Save the entered form data to textHistory
-    setTextHistory([...textHistory, formData]);
-    // Clear the form inputs
-    /*etVa01Input("");
-     setVa02Input("");
-     setEnfoqueInvestigacion("");
-     setTipoInvestigacion("");
-     setDisenoInvestigacion("");
-     setTiposDisenoExperimental("");
-     setTiposDisenoNoExperimental("");
-     setNivelInvestigacion("");*/
-    // You can also make API requests here with the formData if needed
   }
 
   // Función para dividir el texto en `result` en una matriz de cadenas de texto usando expresiones regulares
@@ -85,7 +78,7 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.gradient_background}>
+    <div className={styles.gradient_background_dark}>
       <Head>
         <title>Generar preguntas y respuestas con IA</title>
         <link rel="icon" href="/traviweb_logo.png" />
@@ -95,8 +88,8 @@ export default function Home() {
         <div className="d-flex justify-content-center align-items-center">
           <div className="position-relative text-center">
             <div className=" " >
-              <h3 className={`text-center mt-2 ${styles.text_gt}`}>Generar preguntas y respuestas con IA</h3>
-              <p className="ms-5 me-5m mb-3 text-dark " >Nuestra aplicación utiliza inteligencia artificial para generar respuestas y preguntas comunes relacionadas con tesis académicas. ¿Quieres ensayar ahora?</p>
+              <h3 className={`text-center mt-2 ${styles.gradient_background_text}`}>Generar preguntas y respuestas con IA</h3>
+              <p className={`ms-5 me-5 text-center ${styles.text_description_matriz}`} >Nuestra aplicación utiliza inteligencia artificial para generar respuestas y preguntas comunes relacionadas con tesis académicas. ¿Quieres ensayar ahora?</p>
             </div>
           </div>
         </div>
@@ -244,58 +237,71 @@ export default function Home() {
                       </select>
                     </div>
                   </div>
-                  <div class="d-grid gap-2">
-                    <input type="submit" className={`mb-2 mt-0 ${styles.bg_gt}`} value="Generar preguntas y respuestas con IA" />
-                  </div>
                 </form>
               </div>
             </div>
           </div>
-
-
           <div class="col-sm-8">
-            {result ? ( // Conditional rendering based on the result
-              <main className={styles.main}>
-                <div className="card mt-2">
-                  <div className="card-body">
-                    <h5 className="card-title text-danger" >TEXTO INGRESADO</h5>
-                    <ul>
-                      {textHistory.map((formData, index) => (
-                        <li key={index}>
-                          <p>Variable 01: {formData.va01Input}</p>
-                          <p>Variable 02: {formData.va02Input}</p>
-                          <p>Enfoque de investigación: {formData.enfoqueInvestigacion}</p>
-                          <p>Tipo de investigación {formData.tipoInvestigacion}</p>
-                          <p>Diseño de investigación: {formData.disenoInvestigacion}</p>
-                          <p>Tipos de diseño experimental: {formData.tiposDisenoExperimental}</p>
-                          <p>Tipos de diseño experimental: {formData.tiposDisenoNoExperimental}</p>
-                          <p>Nivel de investigación: {formData.nivelInvestigacion}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <div className="card mt-2">
-                  <div className="card-body">
-                    <h5 className="card-title text-success">PREGUNTAS RESPONDIDAS</h5>
-                    <ul style={{ listStyle: 'none' }}>
-                      {splitTextIntoList(result)} {/* Dividir `result` y mostrarlo en una lista */}
-                    </ul>
-                  </div>
-                </div>
-              </main>
-            ) : (
-              <div className={styles.errorText}>
-
-                <div class="card">
-                  <h5 class="card-header">Ejemplo</h5>
-                  <div class="card-body">
-                    <p>1. ¿Cuál fue la motivación para la realización de la investigación?</p>
-                    <p class="fst-italic">La motivación principal que me impulsó a llevar a cabo esta investigación fue el deseo de abordar una problemática que considero de gran relevancia en el campo de estudio. Durante mi trayectoria académica y mi experiencia en este ámbito, me percaté de una brecha de conocimiento en un área específica que consideré crucial.</p>
-                  </div>
+            <div className="DATOS Y PREGUNTAS">
+              <div class="card">
+                <h5 class="card-header">Datos ingresados</h5>
+                <div class="card-body">
+                  <p class="fst-italic"></p>
+                  <p>Variable 01: {va01Input}</p>
+                  <p>Variable 02: {va02Input}</p>
+                  <p>Enfoque de investigación: {enfoqueInvestigacion}</p>
+                  <p>Tipo de investigación {tipoInvestigacion}</p>
+                  <p>Diseño de investigación: {disenoInvestigacion}</p>
+                  <p>Tipos de diseño experimental: {tiposDisenoExperimental}</p>
+                  <p>Tipos de diseño experimental: {tiposDisenoNoExperimental}</p>
+                  <p>Nivel de investigación: {nivelInvestigacion}</p>
                 </div>
               </div>
-            )}
+              <div class="card">
+                <h5 class="card-header">Ingrese su pregunta personalizado</h5>
+                <div class="card-body">
+                  <form onSubmit={onSubmit}>
+                    <div class="mb-3">
+                      <textarea
+                        type="text"
+                        rows="4"
+                        name="pregunta"
+                        className="form-control"
+                        placeholder=" "
+                        value={pregunta}
+                        onChange={(e) => setPregunta(e.target.value)}
+                      />
+                    </div>
+                    <div class="d-grid gap-2">
+                      <input type="submit" className={`mb-2 mt-0 ${styles.bg_gt}`} value="Generar respuesta con IA" />
+                      <button
+                        type="button"
+                        className="btn btn-link text-black"
+                        onClick={handleSurpriseClick}>
+                        <FaIcons.FaStarHalfAlt color="black" size="20px" /> Sorpréndeme
+                      </button>
+                      <div class="card">
+                        <div class="card-body">
+                          {result ? ( // Conditional rendering based on the result
+                            <main className={styles.main}>
+                              <h5 className="card-title text-success">PREGUNTA RESPONDIDA</h5>
+                              <ul style={{ listStyle: 'none' }}>
+                                {splitTextIntoList(result)} {/* Dividir `result` y mostrarlo en una lista */}
+                              </ul>
+                            </main>
+                          ) : (
+                            <div className={styles.errorText}>
+                              <p className="text-center" >Aqui se mostrará las respuestas</p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

@@ -27,15 +27,15 @@ export default function Home() {
   ];
 
   return (
-    <div className={styles.gradient_background}>
+    <div className={styles.gradient_background_dark}>
       <Head>
         <title>Preguntas</title>
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
       <Nav />
       <div className="container">
-        <h3 className={`text-center ${styles.text_gt}`}>Preguntas</h3>
-        <p className="ms-5 me-5 text-dark text-center" >Estas son preguntas frecuentes que suelen surgir durante las sustentaciones de tesis académicas</p>
+        <h3 className={`text-center ${styles.gradient_background_text}`}>Preguntas</h3>
+        <p  className={`ms-5 me-5 text-center ${styles.text_description_matriz}`}>Estas son preguntas frecuentes que suelen surgir durante las sustentaciones de tesis académicas</p>
         <div class="row">
           <div class="col-sm-4">
             <div class="card">
