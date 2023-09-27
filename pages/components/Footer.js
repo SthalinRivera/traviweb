@@ -6,7 +6,7 @@ function Footer() {
     <div className="">
       <div className="container">
   
-        <footer class="text-center text-lg-start text-light-emphasis">
+        <footer class="text-center text-lg-start text-light">
           <section class="">
             <div class="container text-center text-md-start mt-5">
               <div class="row mt-3">
@@ -22,24 +22,11 @@ function Footer() {
                   <h6 class="text-uppercase fw-bold ">
                    links
                   </h6>
-                  <ul class=" me-auto ">
-                    <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="parafrasear">Parafrasear</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="q&a">Q&A</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="matriz_consistencia">Matriz consistencia</a>
-                    </li>
-                    <li class="nav-item">
                       <a class="nav-link" href="preguntas">Preguntas</a>
-                    </li>
-
-                  </ul>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 ">
 
@@ -61,8 +48,10 @@ function Footer() {
               <p className={`${styles.text_gt}`} >&copy; {new Date().getFullYear()} by TraviWeb</p>
               <div>
                 <ul className="list-unstyled d-flex " >
-                  <li className="ms-3 mt-1"><a title="Github" target="_black" className="link-dark" href="https://github.com/SthalinRivera/"> <FaGithub size={20} color="purple" />  </a></li>
-                  <li className="ms-3 mt-1"><a title="Facebook" target="_black" className="link-dark" href="https://web.facebook.com/adlersthalin.riveracenteno"><FaFacebook size={20} color="purple" /></a></li>
+                  <li className="ms-3 mt-1"><a title="Github" target="_black" className="link-dark" 
+                  href="https://github.com/SthalinRivera/"><FaGithub size={20} color="purple" />  </a></li>
+                  <li className="ms-3 mt-1"><a title="Facebook" target="_black" className="link-dark" 
+                  href="https://web.facebook.com/adlersthalin.riveracenteno"><FaFacebook size={20} color="purple" /></a></li>
                 </ul>
               </div>
             </section>

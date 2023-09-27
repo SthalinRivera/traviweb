@@ -1,7 +1,39 @@
 import Link from "next/link";
+import { useState } from "react";
 import styles from "../index.module.css"
+
 import * as FaIcons from 'react-icons/fa';
 const Portal = () => {
+
+
+  const [activeIndex, setActiveIndex] = useState(null);
+  const toggleAccordion = (index) => {
+    if (activeIndex === index) {
+      // Si se hace clic en el elemento abierto, ciérralo
+      setActiveIndex(null);
+    } else {
+      // Si se hace clic en un elemento cerrado, ábrelo
+      setActiveIndex(index);
+    }
+  };
+  const accordionData = [
+    {
+      question: '¿Puedo confiar en que la parafraseo será precisa y coherente?',
+      answer:
+        'Nos esforzamos por proporcionar parafraseos precisos y coherentes, pero siempre es importante revisar el texto resultante para asegurarse de que se ajuste a sus necesidades y estilos específicos. La revisión manual puede ser necesaria en algunos casos.',
+
+
+    },
+    {
+      question: '¿Qué es un generador de textos con inteligencia artificial?',
+      answer: 'Un generador de textos con inteligencia artificial es una herramienta avanzada que utiliza algoritmos de aprendizaje automático para crear contenido de texto de manera automática. Puede generar textos para una amplia variedad de propósitos, como artículos, descripciones de productos, contenido para redes sociales y mucho más.',
+    },
+    {
+      question: '¿Puedo confiar en la precisión de los resúmenes generados por su herramienta en línea?',
+      answer: 'Nuestra herramienta se esfuerza por proporcionar resúmenes precisos, pero siempre recomendamos revisar el resumen resultante para asegurarse de que refleje completamente sus necesidades y el contenido original.',
+    },
+    // Agrega más preguntas y respuestas según sea necesario
+  ];
   return (
     <div class="container py-4">
 
@@ -20,7 +52,7 @@ const Portal = () => {
       <div id="apps">
         <div class="p-5 h-50 mb-4 bg-body-tertiary rounded-3">
           <div class="container-fluid py-2">
-            <h2 className={styles.text_gt} >Generador de matriz de consistencia</h2>
+            <h2 className="" >Generador de matriz de consistencia</h2>
             <p class="col-md-8 fs-4">"Pruebe ahora Generador de Matriz de Consistencia, una aplicación impulsada por inteligencia artificial que crea matrices de consistencia a partir de las variables ingresadas. Simplifique su trabajo de investigación y asegure la coherencia de su estudio en un instante."</p>
             <a className={styles.subrayado_none} href="matriz_consistencia"><button className={styles.btn_bg_gt} type="button">PROBAR AHORA</button></a>
           </div>
@@ -44,6 +76,33 @@ const Portal = () => {
           </div>
         </div>
       </div>
+      <h1 class="mb-3 fw-semibold lh-1 text-white mt-5 text-center">Preguntas frecuentes</h1>
+
+      <div className="accordion" id="accordionExample">
+  {accordionData.map((item, index) => (
+    <div className="accordion-item" key={index}>
+      <h2 className="accordion-header">
+        <button
+          className={`accordion-button bg-dark text-light ${activeIndex === index ? '' : 'collapsed'}`}
+          type="button"
+          onClick={() => toggleAccordion(index)}
+        >
+          {item.question}
+        </button>
+      </h2>
+      <div
+        className={`accordion-collapse collapse ${activeIndex === index ? 'show' : ''}`}
+        id={`collapse${index}`}
+        data-bs-parent="#accordionExample"
+      >
+        <div className="accordion-body">{item.answer}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
 
     </div>
 

@@ -40,7 +40,7 @@ export default function Home() {
           <div class="col-sm-4">
             <div class="card">
               <div class="card-header">
-                <h5 className={`text-center ${styles.text_gt}`}>Preguntas</h5>
+                <h5 className="text-center" >Preguntas</h5>
               </div>
               <div class="card-body text-center ">
               <a className={styles.subrayado_none} href="q&a"><button className={styles.btn_bg_gt}  type="button"> ¿Quieres ensayar ahora?</button></a>
@@ -56,28 +56,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="accordion" id="accordionExample">
-                {accordionData.map((item, index) => (
-                  <div className="accordion-item" key={index}>
-                    <h2 className="accordion-header">
-                      <button
-                        className={`accordion-button bg-light ${activeIndex === index ? '' : 'collapsed'}`}
-                        type="button"
-                        onClick={() => toggleAccordion(index)}
-                      >
-                        {item.question}
-                      </button>
-                    </h2>
-                    <div
-                      className={`accordion-collapse collapse ${activeIndex === index ? 'show' : ''}`}
-                      id={`collapse${index}`}
-                      data-bs-parent="#accordionExample"
-                    >
-                      <div className="accordion-body">{item.answer}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+           
             </main>
 
           </div>

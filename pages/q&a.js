@@ -22,9 +22,9 @@ export default function Home() {
   const [showTiposDisenoExperimental, setShowTiposDisenoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [showTiposDisenoNoExperimental, setShowTiposDisenoNoExperimental] = useState(false); // Estado para controlar la visibilidad
   const [pregunta, setPregunta] = useState(""); // Preguntas perzonalizado
-
+  const [isLoading, setIsLoading] = useState(false);
   const surpriseValues = [
-    { va01: 'Aplicación móvil', va02: 'Mejorar proceso de ventas', enfoqueInvestigacion: 'Cuantitavi', tipoInvestigacion: 'Cualitativo', disenoInvestigacion: 'Aplicada', tiposDisenoExperimental: 'Experimental', tiposDisenoNoExperimental: 'Preexperimental', nivelInvestigacion: 'Explicativo', pregunta: '¿Cuál fue la motivación para la realización de la investigación?' },
+    { va01: 'Aplicación móvil', va02: 'Mejorar proceso de ventas', enfoqueInvestigacion: 'Cuantitavio', tipoInvestigacion: 'Aplicada', disenoInvestigacion: 'Experimental', tiposDisenoExperimental: 'Preexperimental', tiposDisenoNoExperimental: '', nivelInvestigacion: 'Explicativo', pregunta: '¿Cuál fue la motivación para la realización de la investigación?' },
 
     // Agrega más valores sorpresa según sea necesario
   ];
@@ -44,9 +44,13 @@ export default function Home() {
     setNivelInvestigacion(randomValue.nivelInvestigacion);
     setPregunta(randomValue.pregunta);
   };
-
+const limpiarClick= () => {
+  setPregunta("");
+  setIsLoading(false); 
+};
   async function onSubmit(event) {
     event.preventDefault();
+    setIsLoading(true); // Mostrar el spinner mientras se carga
     try {
       const response = await fetch("/api/generate.q&a", {
         method: "POST",
@@ -65,6 +69,8 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       alert(error.message);
+    } finally {
+      setIsLoading(false); // Ocultar el spinner después de cargar
     }
   }
 
@@ -95,9 +101,9 @@ export default function Home() {
         </div>
         <div class="row">
           <div class="col-sm-4">
-            <div class="card">
+            <div class="card mt-2">
               <div class="card-header">
-                <h5 className={`text-center ${styles.text_gt}`}>Ingresar algunos datos para generar tus respuestas</h5>
+                <h5 className="text-center">Ingresar algunos datos para generar tus respuestas</h5>
               </div>
               <div class="card-body">
                 <form onSubmit={onSubmit}>
@@ -242,22 +248,21 @@ export default function Home() {
             </div>
           </div>
           <div class="col-sm-8">
-            <div className="DATOS Y PREGUNTAS">
-              <div class="card">
+            <div className="">
+              <div class="card mt-2">
                 <h5 class="card-header">Datos ingresados</h5>
                 <div class="card-body">
-                  <p class="fst-italic"></p>
                   <p>Variable 01: {va01Input}</p>
                   <p>Variable 02: {va02Input}</p>
                   <p>Enfoque de investigación: {enfoqueInvestigacion}</p>
                   <p>Tipo de investigación {tipoInvestigacion}</p>
                   <p>Diseño de investigación: {disenoInvestigacion}</p>
                   <p>Tipos de diseño experimental: {tiposDisenoExperimental}</p>
-                  <p>Tipos de diseño experimental: {tiposDisenoNoExperimental}</p>
+                  <p>Tipos de diseño no experimental: {tiposDisenoNoExperimental}</p>
                   <p>Nivel de investigación: {nivelInvestigacion}</p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card mt-2">
                 <h5 class="card-header">Ingrese su pregunta personalizado</h5>
                 <div class="card-body">
                   <form onSubmit={onSubmit}>
@@ -280,10 +285,19 @@ export default function Home() {
                         onClick={handleSurpriseClick}>
                         <FaIcons.FaStarHalfAlt color="black" size="20px" /> Sorpréndeme
                       </button>
+                     
                       <div class="card">
                         <div class="card-body">
-                          {result ? ( // Conditional rendering based on the result
+
+                          {isLoading ? ( // Mostrar el spinner si isLoading es true
+                            <div class="text-center mt-4">
+                              <div class="spinner-border " role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                            </div>
+                          ) : result ? ( // Conditional rendering based on the result
                             <main className={styles.main}>
+                         
                               <h5 className="card-title text-success">PREGUNTA RESPONDIDA</h5>
                               <ul style={{ listStyle: 'none' }}>
                                 {splitTextIntoList(result)} {/* Dividir `result` y mostrarlo en una lista */}
@@ -294,6 +308,8 @@ export default function Home() {
                               <p className="text-center" >Aqui se mostrará las respuestas</p>
                             </div>
                           )}
+
+
                         </div>
                       </div>
                     </div>

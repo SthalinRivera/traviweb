@@ -9,7 +9,7 @@ const Nav = () => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-light ${styles.gradient_background}`}>
       <div className="container-fluid">
-        <a className={`navbar-brand ${styles.text_gt}`} href="/">TraviWeb</a>
+        <a className="navbar-brand" href="/">TraviWeb</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,7 +26,7 @@ const Nav = () => {
               <a class="nav-link" href="parafrasear">Parafrasear</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="resumidor">Resumedor</a>
+              <a class="nav-link" href="resumidor">Resumidor</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="q&a">Q&A</a>

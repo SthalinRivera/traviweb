@@ -135,7 +135,7 @@ export default function Home() {
           ) : result ? ( // Mostrar el resultado si result tiene datos
             <div className="card mt-2">
               <div className="card-body">
-                <h4 className={`text-center ${styles.text_gt}`}>Matriz de consistencia generado</h4>
+                <h4 className="text-center ">Matriz de consistencia generado</h4>
                 <div>
                   <div class="table-responsive">
                     <table class="table">

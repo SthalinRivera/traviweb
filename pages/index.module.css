@@ -45,10 +45,32 @@
   transform: scale(0.95);
 }
 
-.text_gt {
-  background: linear-gradient(90deg, rgb(33, 83, 136) 18%, rgba(118, 13, 166, 1) 78%);
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.text_gt {  
+  font-size: clamp(1rem, 1vw,1rem);
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 5px;
+  background: linear-gradient(to right,
+      #cbfa0d 20%,
+      #04f7ff 30%,
+      #4aff77 70%,
+      #fd57ea 80%);
   -webkit-background-clip: text;
-  color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 8s ease-in-out infinite alternate;
 }
 
 .bg_gt {
