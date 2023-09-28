@@ -86,42 +86,42 @@ export default function Home() {
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "Narrativo" ? "active" : ""}`}
               onClick={() => setSelectedOption("Narrativo")}
             >
-              Narrativo  <FaIcons.FaBook color="#045FB4" size="20px" />
+              Narrativo  <FaIcons.FaBook color="#8A0886" size="20px" />
             </button>
             <button
               type="button"
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "Analítico" ? "active" : ""}`}
               onClick={() => setSelectedOption("Analítico")}
             >
-              Analítico  <FaIcons.FaChartArea color="#045FB4" size="20px" />
+              Analítico  <FaIcons.FaChartArea color="#8A0886" size="20px" />
             </button>
             <button
               type="button"
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "Informativo" ? "active" : ""}`}
               onClick={() => setSelectedOption("Informativo")}
             >
-              Informativo <FaIcons.FaCommentAlt color="#045FB4" size="20px" />
+              Informativo <FaIcons.FaCommentAlt color="#8A0886" size="20px" />
             </button>
             <button
               type="button"
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "visual" ? "active" : ""}`}
               onClick={() => setSelectedOption("visual")}
             >
-              Visual <FaIcons.FaBookOpen color="#045FB4" size="20px" />
+              Visual <FaIcons.FaBookOpen color="#8A0886" size="20px" />
             </button>
             <button
               type="button"
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "creativo" ? "active" : ""}`}
               onClick={() => setSelectedOption("creativo")}
             >
-              Creativo <FaIcons.FaStar color="#045FB4" size="20px" />
+              Creativo <FaIcons.FaStar color="#8A0886" size="20px" />
             </button>
             <button
               type="button"
               className={`btn btn-light ms-1 mt-1 ${selectedOption === "Crítico" ? "active" : ""}`}
               onClick={() => setSelectedOption("Crítico")}
             >
-              Crítico <FaIcons.FaHeadSideVirus color="#045FB4" size="20px" />
+              Crítico <FaIcons.FaHeadSideVirus color="#8A0886" size="20px" />
             </button>
           </div>
           <div class="card-body">

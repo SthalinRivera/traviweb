@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "../index.module.css"
-
 import * as FaIcons from 'react-icons/fa';
+
 const Portal = () => {
-
-
   const [activeIndex, setActiveIndex] = useState(null);
   const toggleAccordion = (index) => {
     if (activeIndex === index) {
@@ -79,31 +77,27 @@ const Portal = () => {
       <h1 class="mb-3 fw-semibold lh-1 text-white mt-5 text-center">Preguntas frecuentes</h1>
 
       <div className="accordion" id="accordionExample">
-  {accordionData.map((item, index) => (
-    <div className="accordion-item" key={index}>
-      <h2 className="accordion-header">
-        <button
-          className={`accordion-button bg-dark text-light ${activeIndex === index ? '' : 'collapsed'}`}
-          type="button"
-          onClick={() => toggleAccordion(index)}
-        >
-          {item.question}
-        </button>
-      </h2>
-      <div
-        className={`accordion-collapse collapse ${activeIndex === index ? 'show' : ''}`}
-        id={`collapse${index}`}
-        data-bs-parent="#accordionExample"
-      >
-        <div className="accordion-body">{item.answer}</div>
+
+        {accordionData.map((item, index) => (
+          <div className="accordion-item border-0" key={index}>
+            <h2 className="accordion-header">
+              <button
+                className={`accordion-button  text-light  ${styles.gradient_background_dark_menu} ${activeIndex === index ? '' : 'collapsed'}`}
+                type="button"
+                onClick={() => toggleAccordion(index)}>
+                {item.question}
+              </button>
+            </h2>
+            <div
+              className={`accordion-collapse collapse ${activeIndex === index ? 'show' : ''}`}
+              id={`collapse${index}`}
+              data-bs-parent="#accordionExample">
+              <div className="accordion-body bg-dark text-light">{item.answer}</div>
+            </div>
+          </div>
+        ))}
+
       </div>
-    </div>
-  ))}
-</div>
-
-
-
-
     </div>
 
   );

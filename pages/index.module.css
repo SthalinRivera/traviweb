@@ -1,11 +1,15 @@
 .gradient_background {
   background: rgb(208, 208, 233);
-  background: radial-gradient(circle, rgb(183, 183, 215) 0%, rgb(208, 205, 227) 100%);
+  background: radial-gradient(circle, rgb(105, 105, 130) 0%, rgb(208, 205, 227) 100%);
 }
 
 .gradient_background_dark {
   background: rgb(39, 87, 110);
   background: radial-gradient(circle, rgba(39, 87, 110, 1) 0%, rgba(27, 26, 26, 1) 63%);
+}
+.gradient_background_dark_menu {
+  background: rgb(39, 87, 110);
+  background: radial-gradient(circle,rgb(3, 18, 22) 0%,  rgb(16, 31, 39) 63%);
 }
 
 .btn_bg_gt {
@@ -194,3 +198,50 @@
   background: rgb(39, 87, 110);
   background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 95%);
 }
+
+/* Estilos para el modo claro */
+.light-mode {
+  /* Define tus estilos para el modo claro aquí */
+  background-color: white;
+  color: black;
+}
+
+.light-mode.gradient_background {
+  background: rgb(208, 208, 233);
+  background: radial-gradient(circle, rgb(183, 183, 215) 0%, rgb(208, 205, 227) 100%);
+}
+
+/* Estilos para el modo oscuro */
+.dark-mode {
+  /* Define tus estilos para el modo oscuro aquí */
+  background-color: #333;
+  color: white;
+}
+
+/* Estilos para el botón flotante */
+.floating_button {
+  position: fixed;
+  bottom: 20px; /* Distancia desde la parte inferior */
+  right: 20px; /* Distancia desde la parte derecha */
+  padding: 20px;
+  height: 70px;
+  width:70px;
+  margin: 4px 2px;
+  background-color: #83a710; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999; /* Asegura que el botón esté sobre otros elementos */
+  /* Agrega estilos adicionales según sea necesario */
+
+  
+}
+.floating_button:hover {
+  background-color: #65b9e6;
+ }
+ 
+.floating_button:active {
+  box-shadow: 0 0 2px darkslategray;
+  transform: translateY(2px);
+ }
