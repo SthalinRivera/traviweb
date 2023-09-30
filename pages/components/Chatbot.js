@@ -12,12 +12,11 @@ const Chatbot = () => {
     const [isBotResponding, setIsBotResponding] = useState(false); // Nuevo estado
     const messageContainerRef = useRef(null);
 
+
     // Scroll hacia abajo cada vez que se actualiza el historial de mensajes
     useEffect(() => {
         messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
     }, [messageHistory]);
-
-    // ...
 
     async function onSubmit(event) {
         event.preventDefault();
@@ -66,33 +65,22 @@ const Chatbot = () => {
             toast.error(error.message)
         }
     }
-
     // ...
-
-
-
     return (
         <div>
-            <div className={`container  d-flex justify-content-center ${cssBot['']}`}>
-                <div className={`card  bg-dark ${cssBot['']}`}>
-                    <div className={`card-header d-flex flex-row justify-content-between p-1 adiv text-light bg-success bg-gradient ${cssBot['']}`}>
-                        <i className="fas fa-chevron-left"></i>
-                        <span className="pb-3">
-                            <FaIcons.FaComment /> Live chat
-                        </span>
-                        <i className="fas fa-times"></i>
-                    </div>
-                    <div className="card-body">
-                        <div className="container">
+            <div className={`container m-0 p-0  d-flex justify-content-center ${cssBot['']}`}>
+                <div className={`card bg-dark border border-0 ${cssBot['chat_invisible']}`}>
+                    <div className="card-body  ">
+                        <div className=" container">
                             <div className={` ${cssBot['chat-history']}`} ref={messageContainerRef}>
                                 <div className="m-3">
                                     <div className="row">
                                         <div className="col-1">
-                                            <div className={`${cssBot['bg-bot']}`}> <FcIcons.FcReddit /> </div>
+                                            <div className={` ${cssBot['bg-bot']}`}> <FcIcons.FcReddit /> </div>
                                         </div>
                                         <div className="col-10">
                                             <div className={` ${cssBot['bg-bot-text']}`}>
-                                                <p className={`card-text text-light mt-3 ${cssBot['bot-text']}`}>Hola soy Travi, ¿Cómo puedo ayudarte?</p>
+                                                <p className={`card-text text-light mt-3 ${cssBot['bot-text']}`}>Hola soy Travi, ¿Cómo puedo ayudarte, soy un crack?</p>
                                             </div>
                                         </div>
                                     </div>
@@ -103,7 +91,7 @@ const Chatbot = () => {
                                             {message.sender === 'user' ? (
                                                 <div className="row">
                                                     <div className="col-10">
-                                                        <div className={` ${cssBot['bg-user-text']}`} >
+                                                        <div className={` ${cssBot['']}`} >
                                                             <p className={`card-text text-light ${cssBot['user-text']}`}>{message.text}</p>
                                                         </div>
                                                     </div>
@@ -119,7 +107,7 @@ const Chatbot = () => {
                                                         <div className={` ${cssBot['bg-bot']}`}> <FcIcons.FcReddit /> </div>
                                                     </div>
                                                     <div className="col-10">
-                                                        <div className={` ${cssBot['bg-bot-text']}`}>
+                                                        <div className={` ${cssBot['']}`}>
                                                             {isBotResponding && (
                                                                 <p className={`card-text ${cssBot['bot-text']}`}>Travi está escribiendo...</p>
                                                             )}
@@ -135,22 +123,21 @@ const Chatbot = () => {
                         </div>
                     </div>
                     {/* ... (otros elementos del chat) */}
-                    <div className={`${cssBot['']}`}>
-                        <div className="card-footer text-muted bg-success bg-gradient">
+                    <div className="">
+                        <div className="card-footer text-muted  border border-0">
                             <form onSubmit={onSubmit}>
                                 <div className="row">
-                                    <div className="col col-11">
+                                    <div className="col col-10">
                                         <input
-                                            className={`form-control  bg-success bg-gradient text-light   ${cssBot['placeholder-color']}`}
+                                            className={`form-control   ${cssBot['placeholder-color']}`}
                                             rows="2"
                                             placeholder="Escribe tu mensaje"
                                             name="mensaje"
                                             value={mensajeInput}
                                             onChange={(e) => setMensajeInput(e.target.value)}
-                                         
                                         ></input>
                                     </div>
-                                    <div className="col col-1">
+                                    <div className="col col-2">
                                         <button
                                             type="submit"
                                             className={`btn btn-warning ${cssBot['']}`}
@@ -164,6 +151,7 @@ const Chatbot = () => {
                     </div>
                 </div>
             </div>
+
         </div>
 
     );

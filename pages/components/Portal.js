@@ -39,41 +39,115 @@ const Portal = () => {
         <div class="container-xxl bd-gutter">
           <div class="col-md-8 mx-auto text-center">
             <img src="/icon.gif" width="300" height="300" alt="Bootstrap" />
-            <h1 class="mb-3 fw-semibold lh-1 text-white mt-5">El poder de la IA en tus manos: Resumir, parafrasear y más, fácilmente</h1>
+            <h1 class="mb-3 fw-semibold lh-1 text-white mt-5">Genera contenido único y sorprendente en un abrir y cerrar de ojos con nuestra app web.</h1>
             <p class="lead mb-4 text-white mb-5">
-              La aplicación revolucionaria combina tecnología de vanguardia, aprendizaje automático y procesamiento de lenguaje natural para ofrecer soluciones creativas, precisas y eficientes en la generación de texto y comunicación
+              Ahorra tiempo y esfuerzo en tus proyectos académicos de forma facil y efectivos que garantizamos que son muy unicos y creativos utilizando nuestra app de generadores con inteligencia artificial.
             </p>
             <a href="#apps"><button type="button" class="btn btn-warning btn-lg mb-5">  <FaIcons.FaHubspot color="black" />  Comience  gratis</button></a>
           </div>
         </div>
       </div>
-      <div id="apps">
-        <div class="p-5 h-50 mb-4 bg-body-tertiary rounded-3">
-          <div class="container-fluid py-2">
-            <h2 className="" >Generador de matriz de consistencia</h2>
-            <p class="col-md-8 fs-4">"Pruebe ahora Generador de Matriz de Consistencia, una aplicación impulsada por inteligencia artificial que crea matrices de consistencia a partir de las variables ingresadas. Simplifique su trabajo de investigación y asegure la coherencia de su estudio en un instante."</p>
-            <a className={styles.subrayado_none} href="matriz_consistencia"><button className={styles.btn_bg_gt} type="button">PROBAR AHORA</button></a>
-          </div>
-        </div>
 
-        <div class="row align-items-md-stretch" >
-          <div class="col-md-6">
-            <div class="h-80 p-3 text-bg-dark rounded-3"  >
-              <h2>Parafrasador con IA </h2>
-              <p>Nuestra aplicación de Parafrasador con IA es la herramienta esencial que necesitas para darle un giro fresco y único a tus textos. Ya sea que estés escribiendo un artículo, un informe, un ensayo, contenido web o cualquier otro tipo de documento, nuestra aplicación te ofrece una manera rápida y eficiente de reformular tus palabras y expresiones sin perder el significado original.</p>
-              <a href="parafrasear"><button class="btn btn-outline-light" type="button">PROBAR AHORA</button></a>
+
+
+
+      <section className="bg-100" id="apps">
+        <div className="container">
+          <div className="text-center mb-6">
+            <h3 className="fs-2 fs-md-3 text-light">APPS</h3>
+            <hr
+              className="short"
+              data-zanim-xs='{"from":{"opacity":0,"width":0},"to":{"opacity":1,"width":"4.20873rem"},"duration":0.8}'
+              data-zanim-trigger="scroll"
+            />
+          </div>
+          <div className="row g-0 position-relative mb-4 mb-lg-0">
+            <div className="col-lg-6 py-3 py-lg-0 mb-0 position-relative" style={{ minHeight: '400px' }}>
+              <div
+                className="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0"
+                style={{
+                  backgroundImage: `url('./matriz.jpg')`, // Ruta relativa a la imagen
+                  width: '100%', // Ancho del div
+                  height: '100%', // Altura del div
+                  backgroundSize: 'cover', // Ajusta el tamaño de la imagen de fondo
+                }}
+              >
+                {/* Contenido del div */}
+              </div>
+            </div>
+            <div className="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-dark rounded-bs-lg rounded-lg-bs-0 rounded-be-lg rounded-lg-be-0 rounded-lg-te-lg ">
+              <div className="elixir-caret d-none d-lg-block"></div>
+              <div className="d-flex align-items-center h-100">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <div className="overflow-hidden">
+                    <h1 className="text-light">Generador de matriz de consistencia</h1>
+                  </div>
+                  <div className="overflow-hidden">
+                    <p className="mt-3 text-light">"Pruebe ahora Generador de Matriz de Consistencia, una aplicación impulsada por inteligencia artificial que crea matrices de consistencia a partir de las variables ingresadas. Simplifique su trabajo de investigación y asegure la coherencia de su estudio en un instante."</p>
+                  </div>
+                  <div className="overflow-hidden">
+                    <a href="parafrasear"><button class="btn btn-light" type="button">PROBAR AHORA</button></a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="h-80 p-3 bg-body-tertiary border rounded-3">
-              <h2>Tesis Q&A</h2>
-              <p>
-                Q&A es una aplicación  que emplea inteligencia artificial para generar respuestas de tesis a partir de datos ingresados. Con una interfaz amigable y resultados personalizables, simplifica la investigación académica y brinda respuestas precisas y relevantes a tus preguntas de tesis..</p>
-              <a href="q&a"> <button class="btn btn-outline-secondary" type="button">Explorar</button></a>
+          <div className="row g-0 position-relative mb-4 mb-lg-0">
+            <div className="col-lg-6 py-3 py-lg-0 mb-0 position-relative order-lg-2" style={{ minHeight: '400px' }}>
+              <div className="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0  rounded-lg-ts-0"  style={{
+                  backgroundImage: `url('./parafraseador.png')`, // Ruta relativa a la imagen
+                  width: '100%', // Ancho del div
+                  height: '100%', // Altura del div
+                  backgroundSize: 'cover', // Ajusta el tamaño de la imagen de fondo
+                }}></div>
+            </div>
+            <div className="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0  rounded-bs-lg rounded-lg-bs-0 rounded-be-lg  rounded-lg-be-0 bg-dark">
+              <div className="elixir-caret d-none d-lg-block"></div>
+              <div className="d-flex align-items-center h-100">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <div className="overflow-hidden">
+                    <h1 className="text-light">Parafrasador con IA</h1>
+                  </div>
+                  <div className="overflow-hidden">
+                    <p className="mt-3 text-light" >Nuestra aplicación de Parafrasador con IA es la herramienta esencial que necesitas para darle un giro fresco y único a tus textos. Ya sea que estés escribiendo un artículo, un informe, un ensayo, contenido web o cualquier otro tipo de documento, nuestra aplicación te ofrece una manera rápida y eficiente de reformular tus palabras y expresiones sin perder el significado original.</p>
+                  </div>
+                  <div className="overflow-hidden">
+                    <a href="parafrasear"><button class="btn btn-outline-light" type="button">PROBAR AHORA</button></a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          <div className="row g-0 position-relative mb-4 mb-lg-0">
+            <div className="col-lg-6 py-3 py-lg-0 mb-0 position-relative" style={{ minHeight: '400px' }}>
+              <div className="bg-holder rounded-ts-lg rounded-te-lg rounded-lg-te-0 rounded-lg-ts-0 rounded-bs-0 rounded-lg-bs-lg "  style={{
+                  backgroundImage: `url('./questios.png')`, // Ruta relativa a la imagen
+                  width: '100%', // Ancho del div
+                  height: '100%', // Altura del div
+                  backgroundSize: 'cover', // Ajusta el tamaño de la imagen de fondo
+                }}></div>
+            </div>
+            <div className="col-lg-6 px-lg-5 py-lg-6 p-4 my-lg-0 bg-dark rounded-bs-lg rounded-lg-bs-0 rounded-be-lg  ">
+              <div className="elixir-caret d-none d-lg-block"></div>
+              <div className="d-flex align-items-center h-100">
+                <div data-zanim-timeline="{}" data-zanim-trigger="scroll">
+                  <div className="overflow-hidden">
+                    <h1 className="text-light">Tesis Q&A</h1>
+                  </div>
+                  <div className="overflow-hidden">
+                    <p className="mt-3 text-light" >Q&A es una aplicación que emplea inteligencia artificial para generar respuestas de tesis a partir de datos ingresados. Con una interfaz amigable y resultados personalizables, simplifica la investigación académica y brinda respuestas precisas y relevantes a tus preguntas de tesis...</p>
+                  </div>
+                  <div className="overflow-hidden">
+                    <a href="q&a"> <button class="btn btn-outline-light" type="button">Explorar</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </section>
+
       <h1 class="mb-3 fw-semibold lh-1 text-white mt-5 text-center">Preguntas frecuentes</h1>
 
       <div className="accordion" id="accordionExample">

@@ -206,7 +206,7 @@
   color: black;
 }
 
-.light-mode.gradient_background {
+.light-mode .gradient_background {
   background: rgb(208, 208, 233);
   background: radial-gradient(circle, rgb(183, 183, 215) 0%, rgb(208, 205, 227) 100%);
 }
@@ -217,35 +217,6 @@
   background-color: #333;
   color: white;
 }
-
-/* Estilos para el botón flotante */
-.floating_button {
-  position: fixed;
-  bottom: 20px; /* Distancia desde la parte inferior */
-  right: 20px; /* Distancia desde la parte derecha */
-  padding: 20px;
-  height: 70px;
-  width:70px;
-  margin: 4px 2px;
-  background-color: #83a710; /* Color de fondo del botón */
-  color: #fff; /* Color del texto del botón */
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 999; /* Asegura que el botón esté sobre otros elementos */
-  /* Agrega estilos adicionales según sea necesario */
-
-  
-}
-.floating_button:hover {
-  background-color: #65b9e6;
- }
- 
-.floating_button:active {
-  box-shadow: 0 0 2px darkslategray;
-  transform: translateY(2px);
- }
-
 
  .message-container {
   display: flex;
@@ -259,4 +230,43 @@
 
 .bot .message-container {
   justify-content: flex-end; /* Para los mensajes del bot */
+}
+
+.custom_switch_container {
+  font-size: 20px; /* Ajusta el tamaño del texto y el contenedor según tus necesidades */
+}
+
+.custom_switch {
+  width: 20px; /* Ajusta el ancho del interruptor */
+  height: 20px; /* Ajusta la altura del interruptor */
+  transform: scale(2); /* Ajusta la escala para hacerlo más grande */
+  margin-right: 10px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.custom_checkbox_icon {
+  width: 40px; /* Tamaño del icono */
+  height: 40px; /* Tamaño del icono */
+  text-align: justify;
+  display: inline-block;
+  background-color: white; /* Color de fondo del icono */
+  text-align: center;
+  line-height: 40px; /* Alineación vertical del icono */
+  font-size: 14px; /* Tamaño de fuente del icono */
+  border-radius: 50%; /* Forma redonda para el icono */
+  position: relative;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.custom_checkbox_icon.sun {
+  background-color: yellow; /* Color de fondo cuando está en modo claro (puedes personalizarlo) */
+}
+
+.custom_checkbox_icon.moon {
+  background-color: black; /* Color de fondo cuando está en modo oscuro (puedes personalizarlo) */
+  color: white; /* Color del icono cuando está en modo oscuro (puedes personalizarlo) */
+}
+
+/* Ocultar el input checkbox */
+.form_check_input {
+  display: none;
 }

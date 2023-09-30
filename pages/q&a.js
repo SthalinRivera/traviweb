@@ -24,7 +24,7 @@ export default function Home() {
   const [pregunta, setPregunta] = useState(""); // Preguntas perzonalizado
   const [isLoading, setIsLoading] = useState(false);
   const surpriseValues = [
-    { va01: 'Aplicación móvil', va02: 'Mejorar proceso de ventas', enfoqueInvestigacion: 'Cuantitavio', tipoInvestigacion: 'Aplicada', disenoInvestigacion: 'Experimental', tiposDisenoExperimental: 'Preexperimental', tiposDisenoNoExperimental: '', nivelInvestigacion: 'Explicativo', pregunta: '¿Cuál fue la motivación para la realización de la investigación?' },
+    { va01: 'Aplicación móvil', va02: 'Mejorar proceso de ventas', enfoqueInvestigacion: 'Cuantitativo', tipoInvestigacion: 'Aplicada o Tecnológica', disenoInvestigacion: 'Experimental', tiposDisenoExperimental: 'Preexperimental', tiposDisenoNoExperimental: '', nivelInvestigacion: 'Explicativo', pregunta: '¿Cuál fue la motivación para la realización de la investigación?' },
 
     // Agrega más valores sorpresa según sea necesario
   ];

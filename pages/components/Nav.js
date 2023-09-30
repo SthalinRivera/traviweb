@@ -6,8 +6,14 @@ const Nav = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
-    <nav className={`navbar navbar-expand-lg   ${styles.gradient_background_dark_menu}`}>
+    <nav className={`navbar navbar-expand-lg ${isDarkMode ? styles.gradient_background_dark_menu : styles.gradient_background}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand text-light" href="/">TraviWeb</a>
         <button
@@ -37,9 +43,15 @@ const Nav = () => {
             <li class="nav-item">
               <a class="nav-link text-light" href="preguntas">Preguntas</a>
             </li>
-            
+
           </ul>
-          <a target="_black"  className={styles.subrayado_none} href="https://api.whatsapp.com/send?phone=51910985938&text=Hola,%20vengo%20desde%20la%20en%20app%20y%20..."> <button type="button" className={styles.bg_gt} >Contactanos</button></a>
+          <div className={`form-check form-switch ${styles.custom_switch_container}`}>
+            <input type="checkbox" id="customSwitch" value="" onClick={toggleDarkMode} className={`form-check-input ${styles.form_check_input} ${styles.custom_switch}`} />
+            <label className="form-check-label" htmlFor="customSwitch">
+              <span className={` ${styles.custom_checkbox_icon} ${isDarkMode ? 'sun' : 'moon'}`}>{isDarkMode ? "☀" : "🌙"}</span>
+            </label>
+          </div>
+
         </div>
       </div>
     </nav>

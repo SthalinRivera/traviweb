@@ -1,43 +1,101 @@
 /* Chat history */
-.chat-history { 
-    width: 900px;
+.chat-history {
+    width: 100%;
     max-height: 300px;
     /* Altura máxima del historial de mensajes */
     overflow-y: auto;
 }
 
-.bg-user-text {
-    background-color: #0c7a93;
-    border-radius: 10px 0px 20px 10px;
-    -moz-border-radius: 10px 0px 20px 10px;
-    -webkit-border-radius: 10px 0px 20px 10px;
-    border: 0px solid #755959;
-}
 
-.bg-bot-text {
-    background-color: #c152c3;
+.bot-text {
+    background-color: #6a2e6b;
     border-radius: 0px 10px 10px 20px;
     -moz-border-radius: 0px 10px 10px 20px;
     -webkit-border-radius: 0px 10px 10px 20px;
     border: 0px solid #755959;
-}
-
-.bot-text {
     padding: 15px;
 }
 
 .user-text {
+    background-color: #1a424a;
+    border-radius: 10px 0px 20px 10px;
+    -moz-border-radius: 10px 0px 20px 10px;
+    -webkit-border-radius: 10px 0px 20px 10px;
+    border: 0px solid #755959;
     padding: 15px;
 }
 
 .bg-user {
     font-size: 25px;
-  
+
 }
+
 .bg-bot {
     font-size: 25px;
-  
+
 }
+
 .placeholder-color {
-    color: rgb(255, 255, 255); /* Change "red" to the desired color */
+    color: rgb(14, 9, 57);
+    /* Change "red" to the desired color */
 }
+
+.chat_bg_dark {
+    background: rgb(39, 87, 110);
+    background: radial-gradient(circle, rgb(28, 66, 84) 0%, rgba(27, 26, 26, 1) 95%);
+}
+
+.chat_bg_header_dark {
+    background: rgb(39, 87, 110);
+    background: radial-gradient(circle, rgba(39, 87, 110, 1) 0%, rgb(56, 48, 48) 63%);
+}
+
+.chat_bg_footer_dark {
+    background: rgb(39, 87, 110);
+    background: radial-gradient(circle, rgb(15, 71, 90) 0%, rgb(15, 26, 37) 63%);
+}
+
+/* Estilos para el botón flotante */
+.floating_button {
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    right: 20px; /* Distancia desde la parte derecha */
+    padding: 20px;
+    height: 70px;
+    width: 70px;
+    margin: 4px 2px;
+    background-color: #83a710; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999; /* Asegura que el botón esté sobre otros elementos */
+    /* Agrega estilos adicionales según sea necesario */
+}
+
+/* Estilos para el chat flotante */
+.floating_chat_position {
+    width: 25%;
+    position: fixed;
+    bottom: calc(20px + 70px + 20px); /* Considera la posición del botón flotante y su altura */
+    right: 20px; /* Distancia desde la parte derecha */
+    /* Agrega otros estilos según tus preferencias */
+}
+/* Estilos para el chat flotante en pantallas más pequeñas (móviles) */
+@media (max-width: 767px) {
+    .floating_chat_position {
+        width: 100%;
+        right: 0; /* Reinicia la distancia desde la parte derecha */
+        left: 0; /* Reinicia la distancia desde la parte izquierda */
+    }
+}
+  .floating_button:hover {
+    background-color: #65b9e6;
+   }
+   
+  .floating_button:active {
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+   }
+  
+  
