@@ -245,3 +245,18 @@
   box-shadow: 0 0 2px darkslategray;
   transform: translateY(2px);
  }
+
+
+ .message-container {
+  display: flex;
+  justify-content: flex-start; /* Cambia a "flex-end" para los mensajes del bot */
+  margin: 5px 10px;
+  padding: 10px;
+  background-color: #f0f0f0; /* Cambia el color de fondo según tus preferencias */
+  border-radius: 10px;
+  max-width: 70%; /* Ajusta según tus preferencias */
+}
+
+.bot .message-container {
+  justify-content: flex-end; /* Para los mensajes del bot */
+}

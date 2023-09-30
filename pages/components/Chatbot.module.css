@@ -1,0 +1,43 @@
+/* Chat history */
+.chat-history { 
+    width: 900px;
+    max-height: 300px;
+    /* Altura máxima del historial de mensajes */
+    overflow-y: auto;
+}
+
+.bg-user-text {
+    background-color: #0c7a93;
+    border-radius: 10px 0px 20px 10px;
+    -moz-border-radius: 10px 0px 20px 10px;
+    -webkit-border-radius: 10px 0px 20px 10px;
+    border: 0px solid #755959;
+}
+
+.bg-bot-text {
+    background-color: #c152c3;
+    border-radius: 0px 10px 10px 20px;
+    -moz-border-radius: 0px 10px 10px 20px;
+    -webkit-border-radius: 0px 10px 10px 20px;
+    border: 0px solid #755959;
+}
+
+.bot-text {
+    padding: 15px;
+}
+
+.user-text {
+    padding: 15px;
+}
+
+.bg-user {
+    font-size: 25px;
+  
+}
+.bg-bot {
+    font-size: 25px;
+  
+}
+.placeholder-color {
+    color: rgb(255, 255, 255); /* Change "red" to the desired color */
+}

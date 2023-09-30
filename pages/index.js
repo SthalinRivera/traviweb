@@ -6,6 +6,8 @@ import Nav from "./components/Nav"; // Import the Nav component
 import * as FaIcons from 'react-icons/fa';
 import Portal from "./components/Portal";
 import Footer from "./components/Footer";
+import Chatbot  from "./components/Chatbot";
+
 import React, { useEffect } from 'react';
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -23,8 +25,11 @@ export default function Home() {
       <div className="App">
         <header className="App-header">
         </header>
-      </div>
+      </div>  
+       <Chatbot />
+     
       <Portal />
+   
       <div className="contaniner"></div>
       <div >
         
