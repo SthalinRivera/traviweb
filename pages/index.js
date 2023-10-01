@@ -10,19 +10,7 @@ import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import * as FcIcons from "react-icons/fc";
 export default function Home() {
-  const [showModal, setShowModal] = useState(false);
-  const [isRobotIcon, setIsRobotIcon] = useState(true);
-
-  const openModal = () => {
-    setShowModal(true);
-    setIsRobotIcon(false); // Cambia el estado del ícono cuando se abre el modal
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-    setIsRobotIcon(true); // Cambia el estado del ícono cuando se cierra el modal
-  };
-
+ 
   return (
     <div id="componente" className={`${styles.gradient_background_dark}`}>
       <Head>
