@@ -33,7 +33,7 @@ export default function Home() {
       </Head>
       <Nav />
 
-
+     <Portal />
       <div className="container">
         <button className={cssBot.floating_button} onClick={showModal ? closeModal : openModal}>
           {/* Utiliza el estado "isRobotIcon" para mostrar el ícono apropiado */}
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Portal />
+ 
 
       <Footer />
     </div>
