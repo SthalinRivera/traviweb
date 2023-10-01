@@ -31,52 +31,10 @@ export default function Home() {
         <title>TraviWeb-Inicio</title>
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
-      <Nav/>
-      <button className="btn btn-primary" onClick={openModal}>
-        Abrir modal
-      </button>
+      <Nav />
 
-      {/* Modal */}
-      {showModal && (
-        <div
-          className="modal fade show"
-          tabIndex="-1"
-          role="dialog"
-          style={{ display: 'block' }}
-        >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Modal title</h5>
-                <button
-                  type="button"
-                  className="close"
-                  onClick={closeModal}
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">  <Chatbot/></div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={closeModal}
-                >
-                  Cerrar
-                </button>
-            
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {showModal && (
-        <div className="modal-backdrop fade show"></div>
-      )}
 
-<div className="container">
+      <div className="container">
         <button className={cssBot.floating_button} onClick={showModal ? closeModal : openModal}>
           {/* Utiliza el estado "isRobotIcon" para mostrar el ícono apropiado */}
           {isRobotIcon ? <FaIcons.FaRobot /> : <FaIcons.FaTimes />}
