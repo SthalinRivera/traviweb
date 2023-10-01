@@ -52,7 +52,7 @@ export default function Home() {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">Contenido del modal...</div>
+              <div className="modal-body">  <Chatbot/></div>
               <div className="modal-footer">
                 <button
                   type="button"
@@ -62,7 +62,7 @@ export default function Home() {
                   Cerrar
                 </button>
                 <button type="button" className="btn btn-primary">
-                  Guardar cambios
+              
                 </button>
               </div>
             </div>
