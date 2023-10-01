@@ -11,14 +11,19 @@ import Chatbot from "./components/Chatbot";
 import * as FcIcons from "react-icons/fc";
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
+  const [isRobotIcon, setIsRobotIcon] = useState(true);
 
   const openModal = () => {
     setShowModal(true);
+    setIsRobotIcon(false); // Cambia el estado del ícono cuando se abre el modal
   };
 
   const closeModal = () => {
     setShowModal(false);
+    setIsRobotIcon(true); // Cambia el estado del ícono cuando se cierra el modal
   };
+
+
 
   return (
     <div id="componente" className={`${styles.gradient_background_dark}`}>
@@ -61,9 +66,7 @@ export default function Home() {
                 >
                   Cerrar
                 </button>
-                <button type="button" className="btn btn-primary">
-              
-                </button>
+            
               </div>
             </div>
           </div>
@@ -72,6 +75,32 @@ export default function Home() {
       {showModal && (
         <div className="modal-backdrop fade show"></div>
       )}
+
+<div className="container">
+        <button className={cssBot.floating_button} onClick={showModal ? closeModal : openModal}>
+          {/* Utiliza el estado "isRobotIcon" para mostrar el ícono apropiado */}
+          {isRobotIcon ? <FaIcons.FaRobot /> : <FaIcons.FaTimes />}
+        </button>
+        <div className={`${cssBot.floating_chat_position}`}>
+          <div className={`m-0 p-0   ${showModal ? 'show' : ''}`} tabIndex="-3" role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
+            <div className="modal-dialog " role="document">
+              <div className="modal-content bg-dark ">
+                <div className={`modal-header ${cssBot.chat_bg_header_dark}`} >
+                  <span className="p-2 m-2">
+                    <h5 className="modal-title mx-auto text-light">
+                      <FcIcons.FcReddit /> Chatea con Travi IA
+                    </h5>
+                  </span>
+                </div>
+                <div className="modal-body ">
+                  <Chatbot />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Portal />
 
       <Footer />
