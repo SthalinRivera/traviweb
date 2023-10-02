@@ -42,7 +42,7 @@ export default function Home() {
         <div className={`${cssBot.floating_chat_position}`}>
           <div className={`m-0 p-0   ${showModal ? 'show' : ''}`} tabIndex="-3" role="dialog" style={{ display: showModal ? 'block' : 'none' }}>
             <div className="modal-dialog " role="document">
-              <div className="modal-content bg-dark ">
+              <div className="modal-content bg-dark border-5">
                 <div className={`modal-header ${cssBot.chat_bg_header_dark}`} >
                   <span className="p-2 m-2">
                     <h5 className="modal-title mx-auto text-light">

@@ -43,6 +43,7 @@
 .chat_bg_dark {
     background: rgb(39, 87, 110);
     background: radial-gradient(circle, rgb(28, 66, 84) 0%, rgba(27, 26, 26, 1) 95%);
+   
 }
 
 .chat_bg_header_dark {
@@ -84,9 +85,11 @@
 /* Estilos para el chat flotante en pantallas más pequeñas (móviles) */
 @media (max-width: 767px) {
     .floating_chat_position {
-        width: 100%;
-        right: 0; /* Reinicia la distancia desde la parte derecha */
-        left: 0; /* Reinicia la distancia desde la parte izquierda */
+
+        width: 96%;
+        right: 1%; /* Reinicia la distancia desde la parte derecha */
+        left: 2%; /* Reinicia la distancia desde la parte izquierda */
+       
     }
 }
   .floating_button:hover {
