@@ -38,12 +38,10 @@ const Chatbot = () => {
                     },
                     body: JSON.stringify({ mensaje: mensajeInput }),
                 });
-
                 const data = await response.json();
                 if (response.status !== 200) {
                     throw data.error || new Error(`Request failed with status ${response.status}`);
                 }
-
                 // Remueve el mensaje de "Bot is typing..."
                 setMessageHistory((prevHistory) => {
                     const updatedHistory = [...prevHistory];
@@ -55,7 +53,6 @@ const Chatbot = () => {
                     }
                     return [...updatedHistory, { text: data.result, sender: 'bot' }];
                 });
-
                 // Desplaza hacia abajo después de agregar la respuesta del bot
                 messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
             }, 2000);
