@@ -81,6 +81,7 @@ export default function Home() {
       <div className="container">
         <h3 className={`text-center ${styles.gradient_background_text}`} >IA Generator matriz <br /> de consistencia</h3>
         <p className={`ms-5 me-5 text-center ${styles.text_description_matriz}`}  > Convierte palabras en  matrices de consistencia, diseñado para facilitar la elaboración de tesis académicas. ¿Te gustaría ser uno de los primeros en probarla?</p>
+        
         <div class="row ">
           <div class="col-sm-12 ">
             <div class="card  border-0 mb-3">

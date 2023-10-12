@@ -43,7 +43,9 @@ const Nav = () => {
             <li class="nav-item">
               <a class="nav-link text-light" href="preguntas">Preguntas</a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link text-light" href="articulos">Articulos Científicos</a>
+            </li>
           </ul>
           <div className={`form-check form-switch ${styles.custom_switch_container}`}>
             <input type="checkbox" id="customSwitch" value="" onClick={toggleDarkMode} className={`form-check-input ${styles.form_check_input} ${styles.custom_switch}`} />
