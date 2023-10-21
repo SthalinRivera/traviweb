@@ -44,6 +44,9 @@ const Nav = () => {
               <a class="nav-link text-light" href="preguntas">Preguntas</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link text-light" href="interpretador">Interpretador</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link text-light" href="articulos">Articulos Científicos</a>
             </li>
           </ul>
