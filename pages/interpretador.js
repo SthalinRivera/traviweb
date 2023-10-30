@@ -30,7 +30,7 @@ export default function Home() {
       });
 
       const tableMarkdown = markdownTable.join('\n');
-      textAreaRef.current.value += `\n${tableMarkdown}`;
+      textAreaRef.current.value += `${tableMarkdown}`;
     }
   };
 
@@ -83,6 +83,10 @@ export default function Home() {
     const inputValue = e.target.value;
     setAnimalInput(inputValue);
     setCharCount(inputValue.length);
+    if (inputValue.length >= 1000) {
+          alert('Se ha superado el límite de 1000 caracteres.');
+    } 
+    
   };
 
   return (
@@ -118,8 +122,6 @@ export default function Home() {
             >
               Prueba de normalidad  <PiIcons.PiShootingStarDuotone color="purple" size="20px" />
             </button>
-
-
           </div>
           <div class="card-body">
             <div class="row">
@@ -164,7 +166,7 @@ export default function Home() {
 
                     <div className="card mt-2">
                       <div className="card-body">
-                        <h5 className="card-title text-dark ">Texto parafraseado</h5>
+                        <h5 className="card-title text-dark ">Texto Interpretado</h5>
                         <p className="card-text">{result}</p>
                       </div>
                     </div>
@@ -194,11 +196,8 @@ export default function Home() {
                 <p className={`${styles.text_description_matriz}`}>Descubre la aplicación definitiva para interpretar tablas de frecuencias, resultados de pruebas de normalidad y mucho más, impulsada por inteligencia artificial. </p>
               </div>
             </div>
-
-
           </div>
         </div>
-
       </div>
       <Footer />
     </div>
