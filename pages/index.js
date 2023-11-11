@@ -8,6 +8,7 @@ import * as FaIcons from 'react-icons/fa';
 import Portal from "./components/Portal";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
+import Publicidad from "./components/Publicidad";
 import * as FcIcons from "react-icons/fc";
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -31,6 +32,7 @@ export default function Home() {
         <title>TraviWeb-Inicio</title>
         <link rel="icon" href="/traviweb_logo.png" />
       </Head>
+      <Publicidad/>
       <Nav />
 
      <Portal />

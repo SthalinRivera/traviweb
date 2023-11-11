@@ -1,0 +1,60 @@
+.bg_publi {
+  
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 100%, rgba(252, 176, 69, 1) 100%);
+    display: flex;
+    justify-content: space-between; /* Alinea el botón a la derecha */
+    align-items: center;
+    padding: 10px;
+    z-index: 999;
+}
+
+
+.original_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    border: 0;
+    position: relative;
+    transition: 0.3s;
+    overflow: hidden;
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 100%, rgba(252, 176, 69, 1) 100%);
+
+  }
+  
+  .original_button::before {
+    content: "new";
+    display: block;
+    font-size: 11px;
+    width: 60px;
+    text-align: center;
+    background-color: rgb(139, 0, 0);
+    color: #fff;
+    padding: 7px 0 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-34%, -4px) rotate(-35deg);
+    transition: .3s;
+  }
+  
+  .original_button:hover {
+    color: #fff;
+    font-size: 15px;
+    background-color: rgb(19, 25, 132);
+  }
+  
+  .original_button:hover::before {
+    background-color: #fff;
+    color: rgb(208, 4, 4);
+  }
