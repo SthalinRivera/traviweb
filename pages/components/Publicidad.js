@@ -11,8 +11,8 @@ const Publicidad = () => {
           width="40"
           height="50"
         />
-        <p className="text-light">Pruebe el generador de Matriz de consistencia v2 </p>
-        <a href="matriz_consistencia" className={`btn  ${Publi_css.original_button}`} type="submit" >Probar ahora</a>
+        <p className="text-light">Pruebe Nuestra app Mejorada 2.0 GRATIS </p>
+        <a href="https://travi.vercel.app/" className={`btn  ${Publi_css.original_button}`} type="submit" >Probar ahora</a>
       </div>
     </nav>
   );
