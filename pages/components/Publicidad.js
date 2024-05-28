@@ -11,7 +11,7 @@ const Publicidad = () => {
           width="40"
           height="50"
         />
-        <p className="text-light">Pruebe Nuestra app Mejorada 2.0 GRATIS </p>
+        <p className="text-light">Pruebe nuestra app Versión 2.0 GRATIS </p>
         <a href="https://travi.vercel.app/" className={`btn  ${Publi_css.original_button}`} type="submit" >Probar ahora</a>
       </div>
     </nav>
